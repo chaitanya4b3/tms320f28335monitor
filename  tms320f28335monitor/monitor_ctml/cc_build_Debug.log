@@ -1,7 +1,53 @@
 --------------------------  monitor_ctml.pjt - Debug  --------------------------
-[DSP2833x_SWPrioritizedDefaultIsr.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 -@"../monitor_ctml/Debug.lkf" "DSP2833x_SWPrioritizedDefaultIsr.c"
+[DSP2833x_Adc.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Adc.c"
 
-[DSP2833x_SWPrioritizedPieVect.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 -@"../monitor_ctml/Debug.lkf" "DSP2833x_SWPrioritizedPieVect.c"
+[DSP2833x_CodeStartBranch.asm] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_CodeStartBranch.asm"
+
+[DSP2833x_CpuTimers.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_CpuTimers.c"
+
+[DSP2833x_CSMPasswords.asm] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_CSMPasswords.asm"
+
+[DSP2833x_DefaultIsr.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_DefaultIsr.c"
+
+[DSP2833x_DMA.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_DMA.c"
+
+[DSP2833x_ECan.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_ECan.c"
+
+[DSP2833x_ECap.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_ECap.c"
+
+[DSP2833x_EPwm.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_EPwm.c"
+
+[DSP2833x_EQep.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_EQep.c"
+
+[DSP2833x_Gpio.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Gpio.c"
+
+[DSP2833x_I2C.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_I2C.c"
+
+[DSP2833x_Mcbsp.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Mcbsp.c"
+
+[DSP2833x_MemCopy.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_MemCopy.c"
+
+[DSP2833x_PieCtrl.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_PieCtrl.c"
+
+[DSP2833x_PieVect.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_PieVect.c"
+
+[DSP2833x_Sci.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Sci.c"
+
+[DSP2833x_Spi.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Spi.c"
+
+[DSP2833x_SWPrioritizedDefaultIsr.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_SWPrioritizedDefaultIsr.c"
+
+[DSP2833x_SWPrioritizedPieVect.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_SWPrioritizedPieVect.c"
+
+[DSP2833x_SysCtrl.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_SysCtrl.c"
+
+[DSP2833x_Xintf.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Xintf.c"
+
+[Example_Flash2833x_API.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "Example_Flash2833x_API.c"
+
+[Example_Flash2833x_CsmKeys.asm] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "Example_Flash2833x_CsmKeys.asm"
+
+[Example_Flash2833x_GlobalVariableDefs.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "Example_Flash2833x_GlobalVariableDefs.c"
 
 [Linking...] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -@"Debug.lkf"
 <Linking>
@@ -410,41 +456,31 @@ error: symbol "_InitPieVectTable" redefined: first defined in
    redefined in
    "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedPieVect.
    obj"
-warning: creating ".stack" section with default size of 0x400; use the -stack
-   option to change the default size
 "D:\\work\\TMS320F28335\\cmd\\F28335.cmd", line 141: error: placement fails for
    object "csmpasswds"
 
- undefined                 first referenced                                                       
-  symbol                       in file                                                            
- ---------                 ----------------                                                       
- _ADC_cal                  D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_Adc.obj          
- _AdcRegs                  D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_Adc.obj          
- _CpuTimer0Regs            D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_CpuTimers.obj    
- _CpuTimer1Regs            D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_CpuTimers.obj    
- _CpuTimer2Regs            D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_CpuTimers.obj    
- _DSP28x_usDelay           D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_Adc.obj          
- _DmaRegs                  D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DMA.obj          
- _ECanaMboxes              D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_ECan.obj         
- _ECanaRegs                D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_ECan.obj         
- _ECanbMboxes              D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_ECan.obj         
- _ECanbRegs                D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_ECan.obj         
- _Flash28335_APIVersion    D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\Example_Flash2833x_API.obj
- _Flash28335_APIVersionHex D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\Example_Flash2833x_API.obj
- _Flash28335_Erase         D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\Example_Flash2833x_API.obj
- _Flash28335_Program       D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\Example_Flash2833x_API.obj
- _Flash28335_ToggleTest    D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\Example_Flash2833x_API.obj
- _Flash28335_Verify        D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\Example_Flash2833x_API.obj
- _Flash28_API_LoadEnd      D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\Example_Flash2833x_API.obj
- _Flash28_API_LoadStart    D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\Example_Flash2833x_API.obj
- _Flash28_API_RunStart     D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\Example_Flash2833x_API.obj
- _Flash_CPUScaleFactor     D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\Example_Flash2833x_API.obj
- _Flash_CallbackPtr        D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\Example_Flash2833x_API.obj
- _McbspaRegs               D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_Mcbsp.obj        
- _McbspbRegs               D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_Mcbsp.obj        
- _PieCtrlRegs              D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DMA.obj          
- _PieVectTable             D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_PieVect.obj      
- _XintfRegs                D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SysCtrl.obj      
+ undefined              first referenced                                                       
+  symbol                    in file                                                            
+ ---------              ----------------                                                       
+ _ADC_cal               D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_Adc.obj          
+ _AdcRegs               D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_Adc.obj          
+ _CpuTimer0Regs         D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_CpuTimers.obj    
+ _CpuTimer1Regs         D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_CpuTimers.obj    
+ _CpuTimer2Regs         D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_CpuTimers.obj    
+ _DSP28x_usDelay        D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_Adc.obj          
+ _DmaRegs               D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DMA.obj          
+ _ECanaMboxes           D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_ECan.obj         
+ _ECanaRegs             D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_ECan.obj         
+ _ECanbMboxes           D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_ECan.obj         
+ _ECanbRegs             D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_ECan.obj         
+ _Flash28_API_LoadEnd   D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\Example_Flash2833x_API.obj
+ _Flash28_API_LoadStart D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\Example_Flash2833x_API.obj
+ _Flash28_API_RunStart  D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\Example_Flash2833x_API.obj
+ _McbspaRegs            D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_Mcbsp.obj        
+ _McbspbRegs            D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_Mcbsp.obj        
+ _PieCtrlRegs           D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DMA.obj          
+ _PieVectTable          D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_PieVect.obj      
+ _XintfRegs             D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SysCtrl.obj      
 
 error: unresolved symbols remain
 error: errors encountered during linking; "./Debug/monitor_ctml.out" not built
@@ -452,4 +488,4 @@ error: errors encountered during linking; "./Debug/monitor_ctml.out" not built
 >> Compilation failure
 
 Build Complete,
-  2 Errors, 1 Warnings, 0 Remarks.
+  2 Errors, 0 Warnings, 0 Remarks.

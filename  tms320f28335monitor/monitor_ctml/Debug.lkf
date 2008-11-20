@@ -1,4 +1,4 @@
--z -c -m"./Debug/monitor_ctml.map" -o"./Debug/monitor_ctml.out" -w -x -i"C:/CCStudio_v3.3/C2000/xdais/lib" -i"C:/CCStudio_v3.3/bios_5_31_02/packages/ti/bios/lib" -i"C:/CCStudio_v3.3/bios_5_31_02/packages/ti/rtdx/lib/c2000" -i"C:/Program Files/C2000 Code Generation Tools 5.1.1/lib"
+-z -c -m"./Debug/monitor_ctml.map" -o"./Debug/monitor_ctml.out" -stack0x300 -w -x -i"../lib" -i"C:/CCStudio_v3.3/C2000/xdais/lib" -i"C:/CCStudio_v3.3/bios_5_31_02/packages/ti/bios/lib" -i"C:/CCStudio_v3.3/bios_5_31_02/packages/ti/rtdx/lib/c2000" -i"C:/Program Files/C2000 Code Generation Tools 5.1.1/lib" -l"rts2800_fpu32.lib" -l"Flash28335_API_V210.lib"
 "D:\work\TMS320F28335\cmd\DSP2833x_Headers_nonBIOS.cmd"
 "D:\work\TMS320F28335\cmd\F28335.cmd"
 "D:\work\TMS320F28335\monitor_ctml\Debug\DSP2833x_Adc.obj"

@@ -41,13 +41,13 @@ Source="..\cmd\DSP2833x_Headers_nonBIOS.cmd"
 Source="..\cmd\F28335.cmd"
 
 ["Compiler" Settings: "Debug"]
-Options=-pdsw225 -fr"$(Proj_dir)\Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28
+Options=-pdr -pdsw225 -fr"$(Proj_dir)\Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32
 
 ["Compiler" Settings: "Release"]
 Options=-pdsw225 -o3 -fr"$(Proj_dir)\Release" -d"LARGE_MODEL" -ml -v28
 
 ["Linker" Settings: "Debug"]
-Options=-c -m".\Debug\monitor_ctml.map" -o".\Debug\monitor_ctml.out" -w -x
+Options=-c -m".\Debug\monitor_ctml.map" -o".\Debug\monitor_ctml.out" -stack0x300 -w -x -i"..\lib" -l"rts2800_fpu32.lib" -l"Flash28335_API_V210.lib"
 
 ["Linker" Settings: "Release"]
 Options=-c -m".\Release\monitor_ctml.map" -o".\Release\monitor_ctml.out" -w -x
