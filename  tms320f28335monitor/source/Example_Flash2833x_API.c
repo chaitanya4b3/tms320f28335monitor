@@ -14,7 +14,8 @@
 // $Release Date: September 14, 2007 $
 //###########################################################################
 
-
+#include "DSP2833x_Device.h"
+#include "DSP2833x_Examples.h"
 /*---- Flash API include file -------------------------------------------------*/
 #include "Flash2833x_API_Library.h"
 

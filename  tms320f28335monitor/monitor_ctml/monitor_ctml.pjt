@@ -13,15 +13,19 @@ Config="Release"
 
 [Source Files]
 Source="..\source\DSP2833x_Adc.c"
+Source="..\source\DSP2833x_ADC_cal.asm"
 Source="..\source\DSP2833x_CodeStartBranch.asm"
 Source="..\source\DSP2833x_CpuTimers.c"
 Source="..\source\DSP2833x_CSMPasswords.asm"
+Source="..\source\DSP2833x_DBGIER.asm"
 Source="..\source\DSP2833x_DefaultIsr.c"
+Source="..\source\DSP2833x_DisInt.asm"
 Source="..\source\DSP2833x_DMA.c"
 Source="..\source\DSP2833x_ECan.c"
 Source="..\source\DSP2833x_ECap.c"
 Source="..\source\DSP2833x_EPwm.c"
 Source="..\source\DSP2833x_EQep.c"
+Source="..\source\DSP2833x_GlobalVariableDefs.c"
 Source="..\source\DSP2833x_Gpio.c"
 Source="..\source\DSP2833x_I2C.c"
 Source="..\source\DSP2833x_Mcbsp.c"
@@ -30,37 +34,28 @@ Source="..\source\DSP2833x_PieCtrl.c"
 Source="..\source\DSP2833x_PieVect.c"
 Source="..\source\DSP2833x_Sci.c"
 Source="..\source\DSP2833x_Spi.c"
-Source="..\source\DSP2833x_SWPrioritizedDefaultIsr.c"
-Source="..\source\DSP2833x_SWPrioritizedPieVect.c"
 Source="..\source\DSP2833x_SysCtrl.c"
+Source="..\source\DSP2833x_usDelay.asm"
 Source="..\source\DSP2833x_Xintf.c"
 Source="..\source\Example_Flash2833x_API.c"
 Source="..\source\Example_Flash2833x_CsmKeys.asm"
-Source="..\source\Example_Flash2833x_GlobalVariableDefs.c"
-Source="..\cmd\DSP2833x_Headers_nonBIOS.cmd"
-Source="..\cmd\F28335.cmd"
+Source="..\cmd\monitor_ctml.cmd"
 
 ["Compiler" Settings: "Debug"]
-Options=-pdr -pdsw225 -fr"$(Proj_dir)\Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32
+Options=-pdr -pdsw225 -fr"$(Proj_dir)\Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32
 
 ["Compiler" Settings: "Release"]
 Options=-pdsw225 -o3 -fr"$(Proj_dir)\Release" -d"LARGE_MODEL" -ml -v28
 
 ["Linker" Settings: "Debug"]
-Options=-c -m".\Debug\monitor_ctml.map" -o".\Debug\monitor_ctml.out" -stack0x300 -w -x -i"..\lib" -l"rts2800_fpu32.lib" -l"Flash28335_API_V210.lib"
+Options=-c -ecode_start -m".\Debug\monitor_ctml.map" -o".\Debug\monitor_ctml.out" -stack0x400 -w -x -i"..\lib" -l"rts2800_fpu32.lib" -l"Flash28335_API_V210.lib"
 
 ["Linker" Settings: "Release"]
 Options=-c -m".\Release\monitor_ctml.map" -o".\Release\monitor_ctml.out" -w -x
 
-["..\cmd\DSP2833x_Headers_nonBIOS.cmd" Settings: "Debug"]
+["..\cmd\monitor_ctml.cmd" Settings: "Debug"]
 LinkOrder=1
 
-["..\cmd\DSP2833x_Headers_nonBIOS.cmd" Settings: "Release"]
-LinkOrder=1
-
-["..\cmd\F28335.cmd" Settings: "Debug"]
-LinkOrder=1
-
-["..\cmd\F28335.cmd" Settings: "Release"]
+["..\cmd\monitor_ctml.cmd" Settings: "Release"]
 LinkOrder=1
 

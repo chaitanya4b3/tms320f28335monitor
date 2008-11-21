@@ -127,10 +127,10 @@ SECTIONS
 {
  
    /* Allocate program areas: */
-   .cinit              : > FLASHA      PAGE = 0
-   .pinit              : > FLASHA,     PAGE = 0
-   .text               : > FLASHA      PAGE = 0
-   codestart           : > BEGIN       PAGE = 0
+   .cinit              : load= FLASHA      PAGE = 0
+   .pinit              : load= FLASHA,     PAGE = 0
+   .text               : load= FLASHA      PAGE = 0
+   codestart           : load= BEGIN       PAGE = 0
    ramfuncs            : LOAD = FLASHD, 
                          RUN = RAML0, 
                          LOAD_START(_RamfuncsLoadStart),

@@ -1,491 +1,62 @@
 --------------------------  monitor_ctml.pjt - Debug  --------------------------
-[DSP2833x_Adc.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Adc.c"
+[DSP2833x_Adc.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Adc.c"
 
-[DSP2833x_CodeStartBranch.asm] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_CodeStartBranch.asm"
+[DSP2833x_ADC_cal.asm] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_ADC_cal.asm"
 
-[DSP2833x_CpuTimers.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_CpuTimers.c"
+[DSP2833x_CodeStartBranch.asm] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_CodeStartBranch.asm"
 
-[DSP2833x_CSMPasswords.asm] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_CSMPasswords.asm"
+[DSP2833x_CpuTimers.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_CpuTimers.c"
 
-[DSP2833x_DefaultIsr.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_DefaultIsr.c"
+[DSP2833x_CSMPasswords.asm] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_CSMPasswords.asm"
 
-[DSP2833x_DMA.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_DMA.c"
+[DSP2833x_DBGIER.asm] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_DBGIER.asm"
 
-[DSP2833x_ECan.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_ECan.c"
+[DSP2833x_DefaultIsr.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_DefaultIsr.c"
 
-[DSP2833x_ECap.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_ECap.c"
+[DSP2833x_DisInt.asm] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_DisInt.asm"
 
-[DSP2833x_EPwm.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_EPwm.c"
+[DSP2833x_DMA.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_DMA.c"
 
-[DSP2833x_EQep.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_EQep.c"
+[DSP2833x_ECan.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_ECan.c"
 
-[DSP2833x_Gpio.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Gpio.c"
+[DSP2833x_ECap.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_ECap.c"
 
-[DSP2833x_I2C.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_I2C.c"
+[DSP2833x_EPwm.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_EPwm.c"
 
-[DSP2833x_Mcbsp.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Mcbsp.c"
+[DSP2833x_EQep.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_EQep.c"
 
-[DSP2833x_MemCopy.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_MemCopy.c"
+[DSP2833x_GlobalVariableDefs.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_GlobalVariableDefs.c"
 
-[DSP2833x_PieCtrl.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_PieCtrl.c"
+[DSP2833x_Gpio.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Gpio.c"
 
-[DSP2833x_PieVect.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_PieVect.c"
+[DSP2833x_I2C.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_I2C.c"
 
-[DSP2833x_Sci.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Sci.c"
+[DSP2833x_Mcbsp.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Mcbsp.c"
 
-[DSP2833x_Spi.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Spi.c"
+[DSP2833x_MemCopy.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_MemCopy.c"
 
-[DSP2833x_SWPrioritizedDefaultIsr.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_SWPrioritizedDefaultIsr.c"
+[DSP2833x_PieCtrl.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_PieCtrl.c"
 
-[DSP2833x_SWPrioritizedPieVect.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_SWPrioritizedPieVect.c"
+[DSP2833x_PieVect.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_PieVect.c"
 
-[DSP2833x_SysCtrl.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_SysCtrl.c"
+[DSP2833x_Sci.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Sci.c"
 
-[DSP2833x_Xintf.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Xintf.c"
+[DSP2833x_Spi.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Spi.c"
 
-[Example_Flash2833x_API.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "Example_Flash2833x_API.c"
+[DSP2833x_SysCtrl.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_SysCtrl.c"
 
-[Example_Flash2833x_CsmKeys.asm] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "Example_Flash2833x_CsmKeys.asm"
+[DSP2833x_usDelay.asm] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_usDelay.asm"
 
-[Example_Flash2833x_GlobalVariableDefs.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -mf -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "Example_Flash2833x_GlobalVariableDefs.c"
+[DSP2833x_Xintf.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Xintf.c"
+
+[Example_Flash2833x_API.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "Example_Flash2833x_API.c"
+"Example_Flash2833x_API.c", line 726: remark: parameter "Status" was never referenced
+
+[Example_Flash2833x_CsmKeys.asm] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "Example_Flash2833x_CsmKeys.asm"
 
 [Linking...] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -@"Debug.lkf"
 <Linking>
-error: symbol "_XINT7_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_ECAN1INTA_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_USER10_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_USER5_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_ECAP4_INT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_LVF_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_XINT6_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_ECAN1INTB_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_SCITXINTB_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_MXINTA_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_SCIRXINTB_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_INT14_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_USER4_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_EPWM6_INT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_XINT1_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_SCITXINTC_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_SCIRXINTC_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_USER12_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_USER7_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_EMUINT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_ECAN0INTA_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_ECAP3_INT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_rsvd_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_USER6_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_ILLEGAL_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_ECAN0INTB_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_SPITXINTA_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_SPIRXINTA_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_XINT3_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_SCITXINTA_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_MXINTB_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_SCIRXINTA_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_USER1_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_EPWM5_INT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_XINT2_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_ECAP2_INT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_USER3_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_EPWM4_INT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_USER2_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_INT13_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_ECAP1_INT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_EPWM3_TZINT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_NMI_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_EPWM3_INT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_WAKEINT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_EPWM6_TZINT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_ADCINT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_SEQ2INT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_EPWM2_INT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_DINTCH4_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_EPWM5_TZINT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_RTOSINT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_EQEP2_INT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_DINTCH5_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_I2CINT1A_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_TINT0_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_DINTCH6_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_EPWM1_INT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_SEQ1INT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_EPWM2_TZINT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_ECAP6_INT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_EQEP1_INT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_I2CINT2A_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_MRINTA_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_DATALOG_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_USER9_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_EPWM1_TZINT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_DINTCH1_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_USER8_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_DINTCH2_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_ECAP5_INT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_XINT5_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_LUF_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_EPWM4_TZINT_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_PIE_RESERVED" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_DINTCH3_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_XINT4_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_MRINTB_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_USER11_ISR" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DefaultIsr.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedDefaultI
-   sr.obj"
-error: symbol "_PieVectTableInit" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_PieVect.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedPieVect.
-   obj"
-error: symbol "_InitPieVectTable" redefined: first defined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_PieVect.obj";
-   redefined in
-   "D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SWPrioritizedPieVect.
-   obj"
-"D:\\work\\TMS320F28335\\cmd\\F28335.cmd", line 141: error: placement fails for
-   object "csmpasswds"
-
- undefined              first referenced                                                       
-  symbol                    in file                                                            
- ---------              ----------------                                                       
- _ADC_cal               D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_Adc.obj          
- _AdcRegs               D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_Adc.obj          
- _CpuTimer0Regs         D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_CpuTimers.obj    
- _CpuTimer1Regs         D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_CpuTimers.obj    
- _CpuTimer2Regs         D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_CpuTimers.obj    
- _DSP28x_usDelay        D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_Adc.obj          
- _DmaRegs               D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DMA.obj          
- _ECanaMboxes           D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_ECan.obj         
- _ECanaRegs             D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_ECan.obj         
- _ECanbMboxes           D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_ECan.obj         
- _ECanbRegs             D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_ECan.obj         
- _Flash28_API_LoadEnd   D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\Example_Flash2833x_API.obj
- _Flash28_API_LoadStart D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\Example_Flash2833x_API.obj
- _Flash28_API_RunStart  D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\Example_Flash2833x_API.obj
- _McbspaRegs            D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_Mcbsp.obj        
- _McbspbRegs            D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_Mcbsp.obj        
- _PieCtrlRegs           D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_DMA.obj          
- _PieVectTable          D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_PieVect.obj      
- _XintfRegs             D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\DSP2833x_SysCtrl.obj      
-
-error: unresolved symbols remain
-error: errors encountered during linking; "./Debug/monitor_ctml.out" not built
-
->> Compilation failure
+warning: entry-point symbol other than "_c_int00" specified:  "code_start"
 
 Build Complete,
-  2 Errors, 0 Warnings, 0 Remarks.
+  0 Errors, 1 Warnings, 1 Remarks.

@@ -88,7 +88,7 @@ PAGE 0:    /* Program Memory */
    FLASHA      : origin = 0x338000, length = 0x007F80     /* on-chip FLASH */
    CSM_RSVD    : origin = 0x33FF80, length = 0x000076     /* Part of FLASHA.  Program with all 0x0000 when CSM is in use. */
    BEGIN       : origin = 0x33FFF6, length = 0x000002     /* Part of FLASHA.  Used for "boot to Flash" bootloader mode. */
-   CSM_PWL     : origin = 0x33FFF8, length = 0x000008     /* Part of FLASHA.  CSM password locations in FLASHA */
+   CSM_PWL_A   : origin = 0x33FFF8, length = 0x000008     /* Part of FLASHA.  CSM password locations in FLASHA */
    OTP         : origin = 0x380400, length = 0x000400     /* on-chip OTP */
    ADC_CAL     : origin = 0x380080, length = 0x000009     /* ADC_cal function in Reserved memory */
    
@@ -151,7 +151,7 @@ SECTIONS
                          RUN_START(_RamfuncsRunStart),
                          PAGE = 0
 
-   csmpasswds          : > CSM_PWL     PAGE = 0
+   csmpasswds          : > CSM_PWL_A   PAGE = 0
    csm_rsvd            : > CSM_RSVD    PAGE = 0
    
    /* Allocate uninitalized data sections: */
