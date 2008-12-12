@@ -121,6 +121,24 @@ typedef long double        float64;
 #include "DSP2833x_XIntrupt.h"           // External Interrupts
 #include "DSP2833x_Xintf.h"              // XINTF External Interface
 
+
+#include "Flash2833x_API_Library.h"
+
+
+#include "..\flash\flash.h"
+#include "..\vfd\vfd.h"
+
+
+#define TRUE	1
+#define FALSE	0
+
+#define ON		1
+#define OFF		0
+
+#define CR		0x0D
+#define BELL	0x07
+
+
 #if DSP28_28335
 #define DSP28_EPWM1  1
 #define DSP28_EPWM2  1

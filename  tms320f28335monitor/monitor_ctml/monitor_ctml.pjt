@@ -12,6 +12,8 @@ Config="Debug"
 Config="Release"
 
 [Source Files]
+Source="..\flash\flash.c"
+Source="..\main\main.c"
 Source="..\source\DSP2833x_Adc.c"
 Source="..\source\DSP2833x_ADC_cal.asm"
 Source="..\source\DSP2833x_CodeStartBranch.asm"
@@ -37,8 +39,7 @@ Source="..\source\DSP2833x_Spi.c"
 Source="..\source\DSP2833x_SysCtrl.c"
 Source="..\source\DSP2833x_usDelay.asm"
 Source="..\source\DSP2833x_Xintf.c"
-Source="..\source\Example_Flash2833x_API.c"
-Source="..\source\Example_Flash2833x_CsmKeys.asm"
+Source="..\VFD\vfd.c"
 Source="..\cmd\monitor_ctml.cmd"
 
 ["Compiler" Settings: "Debug"]
