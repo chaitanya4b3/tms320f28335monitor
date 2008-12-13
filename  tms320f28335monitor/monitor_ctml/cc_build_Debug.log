@@ -1,34 +1,11 @@
 --------------------------  monitor_ctml.pjt - Debug  --------------------------
 [flash.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "flash.c"
-"flash.c", line 56: warning: function declared implicitly
-"flash.c", line 66: warning: function declared implicitly
-"flash.c", line 81: warning: function declared implicitly
-"flash.c", line 82: warning: function declared implicitly
-"flash.c", line 85: warning: function declared implicitly
-"flash.c", line 95: warning: function declared implicitly
-"flash.c", line 143: warning: function declared implicitly
-"flash.c", line 147: warning: function declared implicitly
-"flash.c", line 158: warning: function declared implicitly
-"flash.c", line 176: warning: function declared implicitly
-"flash.c", line 178: warning: function declared implicitly
-"flash.c", line 200: warning: function declared implicitly
-"flash.c", line 226: warning: function declared implicitly
-"flash.c", line 228: warning: function declared implicitly
 "flash.c", line 236: remark: controlling expression is constant
-"flash.c", line 238: warning: function declared implicitly
-"flash.c", line 417: warning: function declared implicitly
-"flash.c", line 426: warning: function declared implicitly
-"flash.c", line 476: warning: function declared implicitly
-"flash.c", line 480: warning: function declared implicitly
-"flash.c", line 496: warning: function declared implicitly
 
 [main.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "main.c"
-"main.c", line 32: warning: function declared implicitly
-"main.c", line 63: warning: function declared implicitly
-"main.c", line 65: remark: controlling expression is constant
-"main.c", line 68: warning: function declared implicitly
-"main.c", line 69: warning: function declared implicitly
-"main.c", line 131: warning: function declared implicitly
+"main.c", line 63: remark: controlling expression is constant
+
+[serial.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "serial.c"
 
 [DSP2833x_Adc.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Adc.c"
 
@@ -85,20 +62,7 @@
 
 [Linking...] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -@"Debug.lkf"
 <Linking>
-
- undefined      first referenced                                      
-  symbol            in file                                           
- ---------      ----------------                                      
- _SCIx_RxChar   D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\flash.obj
- _SCIx_TxChar   D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\flash.obj
- _SCIx_TxString D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\flash.obj
- _TxPrintf      D:\\work\\TMS320F28335\\monitor_ctml\\Debug\\flash.obj
-
-error: unresolved symbols remain
 warning: entry-point symbol other than "_c_int00" specified:  "code_start"
-error: errors encountered during linking; "./Debug/monitor_ctml.out" not built
-
->> Compilation failure
 
 Build Complete,
-  1 Errors, 27 Warnings, 2 Remarks.
+  0 Errors, 2 Warnings, 2 Remarks.

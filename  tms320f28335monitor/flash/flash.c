@@ -78,15 +78,15 @@ void DeleteSecletFlash(void)
 
 	FLASH_ST FlashStatus;
 
-	RcvData = SCIx_RxChar();
-	SCIx_TxChar(RcvData);
+	RcvData = SCIa_RxChar();
+	SCIa_TxChar(RcvData);
 	if(RcvData != ' ')
 	{
 		TxPrintf("\nIllegal Command!!\n");
 		return;
 	}
-	RcvData = SCIx_RxChar();
-	SCIx_TxChar(RcvData);
+	RcvData = SCIa_RxChar();
+	SCIa_TxChar(RcvData);
 	switch(RcvData)
 	{
 		case 'b':
@@ -175,8 +175,8 @@ void SCItoRamDownloadPrm(void)
 	InitUserHexDownVariable();
 	TxPrintf("\n  Send User Program *.Hex\n");
 
-	SCIx_TxChar(BELL);
-	SCIx_TxChar(BELL);
+	SCIa_TxChar(BELL);
+	SCIa_TxChar(BELL);
 
 	if(UserPrmHexFileDownLoading(0, SCI)) 
 		TxPrintf("\n  DownLoading Success !!");
@@ -225,8 +225,8 @@ void FlashBurnPrm(void)
 
 	TxPrintf("\n  Send User Program *.Hex\n");
 	
-	SCIx_TxChar(BELL);
-	SCIx_TxChar(BELL);
+	SCIa_TxChar(BELL);
+	SCIa_TxChar(BELL);
 
 	
 	pFlashAdd = (Uint16 *)USER_FLASH;
@@ -235,8 +235,8 @@ void FlashBurnPrm(void)
 
 	while(TRUE)
 	{
-		RcvData[0] = SCIx_RxChar();
-		RcvData[1] = SCIx_RxChar();
+		RcvData[0] = SCIa_RxChar();
+		RcvData[1] = SCIa_RxChar();
 
 		BurnData = ((RcvData[0] << 8) + RcvData[1]);
 
@@ -244,14 +244,14 @@ void FlashBurnPrm(void)
 
 		if(RcvData[0] == ':')
 		{
-			SCIx_TxChar('.');
+			SCIa_TxChar('.');
 			EndCnt = 0;
 			Buf[EndCnt++] = RcvData[0];
 			Buf[EndCnt++] = RcvData[1];
 		}
 		else if(RcvData[1] == ':')
 		{
-			SCIx_TxChar('.');
+			SCIa_TxChar('.');
 			EndCnt = 0;
 			Buf[EndCnt++] = RcvData[1];
 		}
@@ -323,8 +323,8 @@ void FlashBurnPrm(void)
 
 	TxPrintf("\n  Burn User Program End!!\n");
 	
-	SCIx_TxChar(BELL);
-	SCIx_TxChar(BELL);
+	SCIa_TxChar(BELL);
+	SCIa_TxChar(BELL);
 
 #if FLASH_DEBUG
 
@@ -338,21 +338,21 @@ void FlashBurnPrm(void)
 
 		if((char)Buf[0] == CR)
 		{
-			SCIx_TxChar('\r');
-			SCIx_TxChar('\n');
+			SCIa_TxChar('\r');
+			SCIa_TxChar('\n');
 		}
 		else
-			SCIx_TxChar(Buf[0]);
+			SCIa_TxChar(Buf[0]);
 		
 		Buf[1] = RcvData[0] & 0x00ff;
 		
 		if((char)Buf[1] == CR)
 		{
-			SCIx_TxChar('\r');
-			SCIx_TxChar('\n');
+			SCIa_TxChar('\r');
+			SCIa_TxChar('\n');
 		}
 		else
-			SCIx_TxChar(Buf[1]);
+			SCIa_TxChar(Buf[1]);
 		
 	}
 #endif
@@ -414,7 +414,7 @@ Uint16 UserPrmHexFileDownLoading(char StartState, Uint16 Source)
         {
 			if(Source == SCI)
 			{
-				while( SCIx_RxChar() != ':' )
+				while( SCIa_RxChar() != ':' )
 					;
 			}
 			else//FLASH
@@ -473,11 +473,11 @@ Uint16 UserPrmHexFileDownLoading(char StartState, Uint16 Source)
 
         if( CheckSum != (Uint16)HEXDOWN_AsciiConvert(2, Source) )
 		{
-			SCIx_TxString("\nCheckSumError");
+			SCIa_TxString("\nCheckSumError");
             return FALSE;
         }
 
-		 SCIx_TxChar('.');
+		 SCIa_TxChar('.');
     }
  
     return TRUE;
@@ -493,7 +493,7 @@ Uint32 HEXDOWN_AsciiConvert( Uint16 NumByte, Uint16 Source)
     for ( i = 0; i < NumByte; i++ ) 
 	{
 		if(Source == SCI)
-        	Rcvdata = SCIx_RxChar();
+        	Rcvdata = SCIa_RxChar();
 		else
 			Rcvdata = UserProgramData();
 		

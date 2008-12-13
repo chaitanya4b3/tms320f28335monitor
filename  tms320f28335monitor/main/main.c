@@ -13,8 +13,6 @@
 #include "DSP2833x_Device.h"     // DSP2833x Headerfile Include File
 #include "DSP2833x_Examples.h"   // DSP2833x Examples Include File
 
-#include "main.h"
-
 
 void main(void)
 {
@@ -65,8 +63,8 @@ void main(void)
 	while(TRUE)
 	{
 		
-		RcvData = SCIx_RxChar();
-		SCIx_TxChar(RcvData);
+		RcvData = SCIa_RxChar();
+		SCIa_TxChar(RcvData);
 
 		switch(RcvData)
 		{

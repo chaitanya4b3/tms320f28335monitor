@@ -160,6 +160,7 @@ extern void InitXIntrupt(void);
 extern void XintfInit(void);
 extern void InitXintf16Gpio();
 extern void InitXintf32Gpio();
+extern void InitXintf(void);
 extern void InitPll(Uint16 pllcr, Uint16 clkindiv);
 extern void InitPeripheralClocks(void);
 extern void EnableInterrupts(void);

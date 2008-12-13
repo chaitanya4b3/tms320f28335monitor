@@ -15,6 +15,10 @@
 #define DSP2833x_SCI_H
 
 
+#define BAUD150_115200	(Uint16)40
+#define BAUD100_115200	(Uint16)28
+
+
 #ifdef __cplusplus
 extern "C" {
 #endif

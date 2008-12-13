@@ -120,13 +120,16 @@ typedef long double        float64;
 #include "DSP2833x_SysCtrl.h"            // System Control/Power Modes
 #include "DSP2833x_XIntrupt.h"           // External Interrupts
 #include "DSP2833x_Xintf.h"              // XINTF External Interface
-
-
 #include "Flash2833x_API_Library.h"
 
-
+#include "..\main\main.h"
+#include "..\serial\serial.h"
 #include "..\flash\flash.h"
 #include "..\vfd\vfd.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdarg.h>
 
 
 #define TRUE	1
@@ -160,8 +163,8 @@ typedef long double        float64;
 #define DSP28_MCBSPB 1
 #define DSP28_SPIA   1
 #define DSP28_SCIA   1
-#define DSP28_SCIB   1
-#define DSP28_SCIC   1
+#define DSP28_SCIB   0
+#define DSP28_SCIC   0
 #define DSP28_I2CA   1
 #endif  // end DSP28_28335
 
