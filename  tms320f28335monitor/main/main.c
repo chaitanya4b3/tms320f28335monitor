@@ -36,8 +36,6 @@ void main(void)
 	// The default state is all PIE interrupts disabled and flags
 	// are cleared.
 	// This function is found in the DSP2833x_PieCtrl.c file.
-	MemCopy(&Flash28_API_LoadStart, &Flash28_API_LoadEnd, &Flash28_API_RunStart);
-	MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
 	
 	InitPieCtrl();
 
@@ -56,7 +54,6 @@ void main(void)
 	InitFlash();
 	InitSystem();
 
-	VFDMenu("TMS28335");
 	PrintMenu();
 	TxPrintf("\nMonitor28x35]#");
 
@@ -75,12 +72,12 @@ void main(void)
 				
 			case 'A':
 			case 'a':
-				DeleteAllFlash();
+				Erase_AllFlash();
 				break;
 				
 			case 'O':
 			case 'o':
-				DeleteSecletFlash();
+				Erase_SelectFlash();
 				break;
 				
 			case 'D':
@@ -120,22 +117,20 @@ void main(void)
 void InitSystem(void)
 {
 	InitSci();
-	InitFlashAPI28235();
-	InitVFDBright(VfdBright20);
+	InitFlashAPI();
+//	InitVFDBright(VfdBright20);
 }
 
 void PrintMenu(void)
 {
 	TxPrintf("\n");
-	TxPrintf("========   TMS320F28335 Monitor V1.0   ========\n");	
+	TxPrintf("========   TMS320F28335 Monitor V0.1   ========\n");	
 	TxPrintf("  M  :	Display Menu.\n");
 	TxPrintf("  A  :	Delete All Flash.( Sector B - H )\n");
 	TxPrintf("  O  :	Delete Select Sector Flash. ( ex. O B )\n");
 	TxPrintf("  D  :	RAM down  User Program ( *.Hex )\n");
 	TxPrintf("  B  :	Flash down  User Program ( *.Hex )\n");
 	TxPrintf("  G  :	Go User Program\n");
-	TxPrintf("========   by Hwang Ha-yun Maze 8th   ========\n");	
-	TxPrintf("========  blog.naver.com/hhyjjang.do  ========\n");	
-	
+	TxPrintf("========   SSM 18th     Team DSPMATE ========\n");	
 }
 

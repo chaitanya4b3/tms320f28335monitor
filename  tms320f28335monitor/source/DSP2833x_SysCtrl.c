@@ -134,7 +134,7 @@ void DisableDog(void)
 //---------------------------------------------------------------------------
 // This function initializes the PLLCR register.
 
-void InitPll(Uint16 val, Uint16 divsel)
+void InitPll(Uint16 val, Uint16 divsel) //10, 2
 {
 
    // Make sure the PLL is not running in limp mode
@@ -143,7 +143,8 @@ void InitPll(Uint16 val, Uint16 divsel)
       // Missing external clock has been detected
       // Replace this line with a call to an appropriate
       // SystemShutdown(); function.
-      asm("        ESTOP0");
+	ESTOP0;
+//    asm("        ESTOP0");
    }
 
    // DIVSEL MUST be 0 before PLLCR can be changed from
@@ -255,7 +256,7 @@ void InitPeripheralClocks(void)
 //
 // This function is not written to be an example of efficient code.
 
-   SysCtrlRegs.PCLKCR0.bit.ADCENCLK = 1;    // ADC
+   SysCtrlRegs.PCLKCR0.bit.ADCENCLK = 0;    // ADC
 
    // *IMPORTANT*
    // The ADC_cal function, which  copies the ADC calibration values from TI reserved
@@ -267,7 +268,7 @@ void InitPeripheralClocks(void)
    // See the device data manual and/or the ADC Reference
    // Manual for more information.
 
-   ADC_cal();
+//   ADC_cal();
 
 
    SysCtrlRegs.PCLKCR0.bit.I2CAENCLK = 0;   // I2C
@@ -309,12 +310,13 @@ void InitPeripheralClocks(void)
    EDIS;
 }
 
+
+/*
 //---------------------------------------------------------------------------
 // Example: CsmUnlock:
 //---------------------------------------------------------------------------
 // This function unlocks the CSM. User must replace 0xFFFF's with current
 // password for the DSP. Returns 1 if unlock is successful.
-
 #define STATUS_FAIL          0
 #define STATUS_SUCCESS       1
 
@@ -354,7 +356,7 @@ Uint16 CsmUnlock()
     else return STATUS_FAIL;
 
 }
-
+*/
 
 //===========================================================================
 // End of file.

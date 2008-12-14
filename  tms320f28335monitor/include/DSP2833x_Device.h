@@ -36,13 +36,20 @@ extern "C" {
 extern cregister volatile unsigned int IFR;
 extern cregister volatile unsigned int IER;
 
-#define  EINT   asm(" clrc INTM")
-#define  DINT   asm(" setc INTM")
-#define  ERTM   asm(" clrc DBGM")
-#define  DRTM   asm(" setc DBGM")
-#define  EALLOW asm(" EALLOW")
-#define  EDIS   asm(" EDIS")
-#define  ESTOP0 asm(" ESTOP0")
+#define  EINT   asm(" clrc INTM") //Interrupts global Enable
+#define  DINT   asm(" setc INTM") //Interrupts global Disable
+#define  ERTM   asm(" clrc DBGM") //Debug Events are enabled
+#define  DRTM   asm(" setc DBGM") //Debug Events are disabled
+#define  EALLOW asm(" EALLOW") //ALLOW access Protected Registers
+#define  EDIS   asm(" EDIS") //Disable to access Protected Registers		
+#define  ESTOP0 asm(" ESTOP0") //Software BreakPoint
+/*
+When an emulator is connected to the C28x and emulation is enabled, this
+instruction causes the C28x to halt
+When an emulator is not connected or when a debug program has disabled
+emulation,  the  ESTOP0  instruction  is  treated  the  same  way  as  a  NOP
+instruction. It simply advances the PC to the next instruction.
+*/
 
 #define M_INT1  0x0001
 #define M_INT2  0x0002
@@ -129,17 +136,18 @@ typedef long double        float64;
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <stdarg.h>
 
-
-#define TRUE	1
+#define TRUE		1
 #define FALSE	0
 
 #define ON		1
 #define OFF		0
 
+//ASCII code for UART
 #define CR		0x0D
-#define BELL	0x07
+#define BELL		0x07
 
 
 #if DSP28_28335

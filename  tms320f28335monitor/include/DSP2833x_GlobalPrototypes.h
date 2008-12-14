@@ -169,7 +169,7 @@ extern void ADC_cal (void);
 #define KickDog ServiceDog     // For compatiblity with previous versions
 extern void ServiceDog(void);
 extern void DisableDog(void);
-extern Uint16 CsmUnlock(void);
+//extern Uint16 CsmUnlock(void);
 
 // DSP28_DBGIER.asm
 extern void SetDBGIER(Uint16 dbgier);

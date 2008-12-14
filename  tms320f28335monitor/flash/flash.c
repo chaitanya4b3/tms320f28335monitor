@@ -14,15 +14,23 @@
 
 #include "DSP2833x_Device.h"     // DSP2833x Headerfile Include File
 #include "DSP2833x_Examples.h"   // DSP2833x Examples Include File
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
-#define STATUS_SUCCESS 0
 #define SCI		0
 #define FLASH	1
 
+/*
+   FLASHH      : origin = 0x300000, length = 0x008000    
+   FLASHG      : origin = 0x308000, length = 0x008000    
+   FLASHF      : origin = 0x310000, length = 0x008000     
+   FLASHE      : origin = 0x318000, length = 0x008000     
+   FLASHD      : origin = 0x320000, length = 0x008000     
+   FLASHC      : origin = 0x328000, length = 0x008000     
+   FLASHB      : origin = 0x330000, length = 0x008000     
+   FLASHA      : origin = 0x338000, length = 0x007F80     
+*/
 #define USER_FLASH	(Uint32)0x300000
+
+//External RAM zone6
 #define USER_RAM	(Uint32)0x100000
 
 #define FLASH_DEBUG		0
@@ -41,13 +49,50 @@ Uint16 *pRamAdd;
 //#pragma CODE_SECTION(FlashBurnPrm, "ramfuncs");
 
 
-void InitFlashAPI28235(void)
-{
-	Uint16 VersionHex;
-	float  Version;
-	
-	Flash_CPUScaleFactor = SCALE_FACTOR;
 
+/*--- Global variables used to interface to the flash routines */
+FLASH_ST FlashStatus;
+
+
+void InitFlashAPI(void)
+{
+/*
+      5. If required, copy the flash API functions into on-chip zero waitstate
+         RAM.  
+      6. Initalize the Flash_CPUScaleFactor variable to SCALE_FACTOR
+      7. Initalize the callback function pointer or set it to NULL
+      8. Optional: Run the Toggle test to confirm proper frequency configuration
+         of the API. 
+      9. Optional: Unlock the CSM.
+     10. Make sure the PLL is not running in limp mode  
+*/
+	float32 Version;        // Version of the API in floating point
+	Uint16  VersionHex;     // Version of the API in decimal encoded hex
+
+	MemCopy(&Flash28_API_LoadStart, &Flash28_API_LoadEnd, &Flash28_API_RunStart);
+	MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
+
+	Flash_CPUScaleFactor = SCALE_FACTOR;
+	Flash_CallbackPtr = NULL; 
+
+/*------------------------------------------------------------------
+ Unlock the CSM.
+    If the API functions are going to run in unsecured RAM
+    then the CSM must be unlocked in order for the flash 
+    API functions to access the flash.
+   
+    If the flash API functions are executed from secure memory 
+    (L0-L3) then this step is not required.
+------------------------------------------------------------------*/
+
+	flash_Status = CsmUnlock();
+	if(flash_Status != STATUS_SUCCESS) 
+	{
+		Example_Error(flash_Status);
+	}
+
+
+	//Version check
 	VersionHex = Flash_APIVersionHex();
 	if(VersionHex != 0x0210)
 	{
@@ -70,19 +115,17 @@ void InitFlashAPI28235(void)
 	
 }
 
-void DeleteSecletFlash(void)
+void Erase_SelectFlash(void)
 {
 	Uint16 Status;
 	char RcvData;
 	Uint16 DeleteSector;
 
-	FLASH_ST FlashStatus;
-
 	RcvData = SCIa_RxChar();
 	SCIa_TxChar(RcvData);
 	if(RcvData != ' ')
 	{
-		TxPrintf("\nIllegal Command!!\n");
+		TxPrintf("\nWrong Sector Selected Type B to H\n");
 		return;
 	}
 	RcvData = SCIa_RxChar();
@@ -132,7 +175,7 @@ void DeleteSecletFlash(void)
 			break;
 			
 		default:
-			TxPrintf("\nWrong Sector Select!!\n");
+			TxPrintf("\nWrong Sector Selected Type B to H\n");
 			return;
 	}
 
@@ -140,20 +183,18 @@ void DeleteSecletFlash(void)
 
 	if(Status != STATUS_SUCCESS)
 	{
-		TxPrintf("\n  Flash Error!!\n");
+		TxPrintf("\n  Flash_Erase Error!!\n");
 		return;
 	}
 
-	TxPrintf("\n  Delete Sector OK!!\n");
+	TxPrintf("\n  Delete Sector -%c-OK!!\n",RcvData);
 
 	
 }
 
-void DeleteAllFlash(void)
+void Erase_AllFlash(void)
 {
 	Uint16 Status;
-	
-	FLASH_ST FlashStatus;
 
 	TxPrintf("\n  Delete All Flash Sector.\n");
 				
@@ -161,7 +202,7 @@ void DeleteAllFlash(void)
 	
 	if(Status != STATUS_SUCCESS)
 	{
-		TxPrintf("\n  Flash Error!!\n");
+		TxPrintf("\n  Flash_Erase Error!!\n");
 		return;
 	}
 	
@@ -221,8 +262,6 @@ void FlashBurnPrm(void)
 	Uint32 BurnCnt;
 	Uint32 i;
 	
-	FLASH_ST FlashStatus;
-
 	TxPrintf("\n  Send User Program *.Hex\n");
 	
 	SCIa_TxChar(BELL);

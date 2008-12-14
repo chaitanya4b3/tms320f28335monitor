@@ -23,9 +23,9 @@
 #define FLASH_OPT volatile
 
 
-extern void InitFlashAPI28235(void);
-extern void DeleteAllFlash(void);
-extern void DeleteSecletFlash(void);
+extern void InitFlashAPI(void);
+extern void Erase_AllFlash(void);
+extern void Erase_SelectFlash(void);
 extern void InitUserHexDownVariable(void);
 extern void SCItoRamDownloadPrm(void);
 extern 	void FlashtoRamDownloadPrm(void);

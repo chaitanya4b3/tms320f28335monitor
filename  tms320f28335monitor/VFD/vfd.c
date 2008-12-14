@@ -13,10 +13,6 @@
 #include "DSP2833x_Device.h"     // DSP2833x Headerfile Include File
 #include "DSP2833x_Examples.h"   // DSP2833x Examples Include File
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdarg.h>
-
 #define VFD_CNT_CS		(*(volatile Uint16 *)0x0200020)
 #define VFD_DATA		(Uint32)0x0200030
 

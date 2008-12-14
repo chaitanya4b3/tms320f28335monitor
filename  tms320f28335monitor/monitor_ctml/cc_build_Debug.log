@@ -1,6 +1,6 @@
 --------------------------  monitor_ctml.pjt - Debug  --------------------------
 [flash.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "flash.c"
-"flash.c", line 236: remark: controlling expression is constant
+"flash.c", line 237: remark: controlling expression is constant
 
 [main.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "main.c"
 "main.c", line 63: remark: controlling expression is constant
@@ -52,7 +52,6 @@
 [DSP2833x_Spi.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Spi.c"
 
 [DSP2833x_SysCtrl.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_SysCtrl.c"
-"DSP2833x_SysCtrl.c", line 319: warning: incompatible redefinition of macro "STATUS_SUCCESS" (declared at line 58 of "..\include\Flash2833x_API_Library.h")
 
 [DSP2833x_usDelay.asm] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_usDelay.asm"
 
@@ -65,4 +64,4 @@
 warning: entry-point symbol other than "_c_int00" specified:  "code_start"
 
 Build Complete,
-  0 Errors, 2 Warnings, 2 Remarks.
+  0 Errors, 1 Warnings, 2 Remarks.
