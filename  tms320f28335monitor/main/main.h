@@ -1,17 +1,31 @@
 //###########################################################################
 //
-// FILE:    main.h
+// FILE:   main.h
 //
-// TITLE:   TMS320F28335 Monitor Program
+// TITLE:  SSM_ DSPMATE  28335 main.c header
+//
+// DESCRIPTION:
+//	    				
+//         Jeon yu hun  serial test
 //
 //###########################################################################
-// $Release Date: 10. 9. 2008 $
+// $Release Date: 11-25, 2008 $
 //###########################################################################
-#ifndef __MAIN_H__
-#define __MAIN_H__
+#ifndef MAIN_H
+#define MAIN_H
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 extern void InitSystem(void);
 extern void PrintMenu(void);
+
+#ifdef __cplusplus
+}
+#endif /* extern "C" */
+
 
 #endif
 

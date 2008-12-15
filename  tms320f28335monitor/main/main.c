@@ -1,13 +1,15 @@
 //###########################################################################
 //
-// FILE:    main.c
+// FILE:   main.c
 //
-// TITLE:   TMS320F28335MONITOR
+// TITLE:  SSM_ DSPMATE  28335 Monitor Main
 //
-// ASSUMPTIONS:
+// DESCRIPTION:
+//	    				
+//         Jeon yu hun  
 //
 //###########################################################################
-// $Release Date: 11, 8, 2008 $		BY  HWANG HA YUN
+// $Release Date: 11-25, 2008 $
 //###########################################################################
 
 #include "DSP2833x_Device.h"     // DSP2833x Headerfile Include File
@@ -55,9 +57,9 @@ void main(void)
 	InitSystem();
 
 	PrintMenu();
-	TxPrintf("\nMonitor28x35]#");
+	TxPrintf("\nMonitor28335]#");
 
-	while(TRUE)
+	for(;;)
 	{
 		
 		RcvData = SCIa_RxChar();
@@ -104,7 +106,7 @@ void main(void)
 				break;
 		}
 		
-		TxPrintf("\nMonitor28x35]#");
+		TxPrintf("\nMonitor28335]#");
 
 
 		
@@ -126,8 +128,8 @@ void PrintMenu(void)
 	TxPrintf("\n");
 	TxPrintf("========   TMS320F28335 Monitor V0.1   ========\n");	
 	TxPrintf("  M  :	Display Menu.\n");
-	TxPrintf("  A  :	Delete All Flash.( Sector B - H )\n");
-	TxPrintf("  O  :	Delete Select Sector Flash. ( ex. O B )\n");
+	TxPrintf("  A  :	Erase All Flash.( Sector B - H )\n");
+	TxPrintf("  O  :	Erase Select Sector Flash. ( ex. O B )\n");
 	TxPrintf("  D  :	RAM down  User Program ( *.Hex )\n");
 	TxPrintf("  B  :	Flash down  User Program ( *.Hex )\n");
 	TxPrintf("  G  :	Go User Program\n");

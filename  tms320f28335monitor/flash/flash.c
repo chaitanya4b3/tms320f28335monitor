@@ -52,10 +52,11 @@ Uint16 *pRamAdd;
 
 /*--- Global variables used to interface to the flash routines */
 FLASH_ST FlashStatus;
-
+volatile struct HEX_FIELD DownLoadingHex;
 
 void InitFlashAPI(void)
 {
+
 /*
       5. If required, copy the flash API functions into on-chip zero waitstate
          RAM.  
@@ -68,6 +69,7 @@ void InitFlashAPI(void)
 */
 	float32 Version;        // Version of the API in floating point
 	Uint16  VersionHex;     // Version of the API in decimal encoded hex
+	Uint16 flash_Status;
 
 	MemCopy(&Flash28_API_LoadStart, &Flash28_API_LoadEnd, &Flash28_API_RunStart);
 	MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
@@ -88,7 +90,8 @@ void InitFlashAPI(void)
 	flash_Status = CsmUnlock();
 	if(flash_Status != STATUS_SUCCESS) 
 	{
-		Example_Error(flash_Status);
+		TxPrintf("\n  Flash Csmunlock Error!!\n");
+		asm("    ESTOP0");
 	}
 
 
@@ -98,7 +101,7 @@ void InitFlashAPI(void)
 	{
 		// Unexpected API version
 		// Make a decision based on this info. 
-		TxPrintf("\n  Flash API Error!!\n");
+		TxPrintf("\n  Flash API version Error!!\n");
 		asm("    ESTOP0");
 	}   
 
@@ -108,7 +111,7 @@ void InitFlashAPI(void)
 	{
 		// Unexpected API version
 		// Make a decision based on this info. 
-		TxPrintf("\n  Flash API Error!!\n");
+		TxPrintf("\n  Flash API version Error!!\n");
 		asm("    ESTOP0");
 	}
    
@@ -119,59 +122,54 @@ void Erase_SelectFlash(void)
 {
 	Uint16 Status;
 	char RcvData;
-	Uint16 DeleteSector;
+	Uint16 EraseSector;
 
-	RcvData = SCIa_RxChar();
-	SCIa_TxChar(RcvData);
-	if(RcvData != ' ')
-	{
-		TxPrintf("\nWrong Sector Selected Type B to H\n");
-		return;
-	}
+	TxPrintf("\nErase sector... Select Sector(B~H) :");
+
 	RcvData = SCIa_RxChar();
 	SCIa_TxChar(RcvData);
 	switch(RcvData)
 	{
 		case 'b':
 		case 'B':
-			DeleteSector = SECTORB;
-			TxPrintf("\n  Delete SectorB.\n");
+			EraseSector = SECTORB;
+			TxPrintf("\n  Erase SectorB.\n");
 			break;
 			
 		case 'c':
 		case 'C':
-			DeleteSector = SECTORC;
-			TxPrintf("\n  Delete SectorC.\n");
+			EraseSector = SECTORC;
+			TxPrintf("\n  Erase SectorC.\n");
 			break;
 			
 		case 'd':
 		case 'D':
-			DeleteSector = SECTORD;
-			TxPrintf("\n  Delete SectorD.\n");
+			EraseSector = SECTORD;
+			TxPrintf("\n  Erase SectorD.\n");
 			break;
 
 		case 'e':
 		case 'E':
-			DeleteSector = SECTORE;
-			TxPrintf("\n  Delete SectorE.\n");
+			EraseSector = SECTORE;
+			TxPrintf("\n  Erase SectorE.\n");
 			break;
 
 		case 'f':
 		case 'F':
-			DeleteSector = SECTORF;
-			TxPrintf("\n  Delete SectorF.\n");
+			EraseSector = SECTORF;
+			TxPrintf("\n  Erase SectorF.\n");
 			break;
 
 		case 'g':
 		case 'G':
-			DeleteSector = SECTORG;
-			TxPrintf("\n  Delete SectorG.\n");
+			EraseSector = SECTORG;
+			TxPrintf("\n  Erase SectorG.\n");
 			break;
 
 		case 'h':
 		case 'H':
-			DeleteSector = SECTORH;
-			TxPrintf("\n  Delete SectorH.\n");
+			EraseSector = SECTORH;
+			TxPrintf("\n  Erase SectorH.\n");
 			break;
 			
 		default:
@@ -179,7 +177,7 @@ void Erase_SelectFlash(void)
 			return;
 	}
 
-	Status = Flash_Erase(DeleteSector, &FlashStatus);
+	Status = Flash_Erase(EraseSector, &FlashStatus);
 
 	if(Status != STATUS_SUCCESS)
 	{
@@ -187,7 +185,7 @@ void Erase_SelectFlash(void)
 		return;
 	}
 
-	TxPrintf("\n  Delete Sector -%c-OK!!\n",RcvData);
+	TxPrintf("\n  Erase Sector %c OK!!\n",RcvData);
 
 	
 }
@@ -196,7 +194,7 @@ void Erase_AllFlash(void)
 {
 	Uint16 Status;
 
-	TxPrintf("\n  Delete All Flash Sector.\n");
+	TxPrintf("\n  Erase All Flash Sector.\n");
 				
 	Status = Flash_Erase(SECTORB|SECTORC|SECTORD|SECTORE|SECTORF|SECTORG|SECTORH, &FlashStatus);
 	
@@ -206,7 +204,7 @@ void Erase_AllFlash(void)
 		return;
 	}
 	
-	TxPrintf("\n  Delete All Flash Sector OK!!(SECTOR B ~ SECTOR H)\n");
+	TxPrintf("\n  Erase All Flash Sector OK!!(SECTOR B ~ SECTOR H)\n");
 	
 }
 
@@ -272,7 +270,7 @@ void FlashBurnPrm(void)
 	pRamAdd = (Uint16 *)USER_RAM;
 	BurnCnt = 0;
 
-	while(TRUE)
+	for(;;)
 	{
 		RcvData[0] = SCIa_RxChar();
 		RcvData[1] = SCIa_RxChar();
@@ -328,7 +326,7 @@ void FlashBurnPrm(void)
 	{
 		if(BurnCnt < ((Uint32)0x8000*i - 0x100))
 		{
-			TxPrintf("\n  Delete Flash Sector !!\n");
+			TxPrintf("\n  Erase Flash Sector !!\n");
 			Status = Flash_Erase(FlashSector[i-1], &FlashStatus);
 			if(Status != STATUS_SUCCESS)
 			{
@@ -337,7 +335,7 @@ void FlashBurnPrm(void)
 			}
 			else
 			{
-				TxPrintf("\n  Flash Sector Cnt : %ld Deleted !!\n", i);
+				TxPrintf("\n  Flash Sector Cnt : %ld Erased !!\n", i);
 				i = 0;
 				break;
 			}
@@ -413,7 +411,7 @@ void UserProgramStart(void)
 
 void InitUserHexDownVariable(void)
 {
-    memset((void *)&DownLoadingHex, 0x00, sizeof(HEX_FIELD));
+	memset((void *)&DownLoadingHex, 0x00, sizeof(DownLoadingHex));
 }
 
 void InitUserProgramData(void)
@@ -474,7 +472,7 @@ Uint16 UserPrmHexFileDownLoading(char StartState, Uint16 Source)
         //      Data Length
         DownLoadingHex.DataLength = (Uint16)HEXDOWN_AsciiConvert(2, Source);
         //      Offset Address
-        DownLoadingHex.Address.Word.Low = (Uint16)HEXDOWN_AsciiConvert(4, Source);
+        DownLoadingHex.Address.Word.Low16 = (Uint16)HEXDOWN_AsciiConvert(4, Source);
         //      Data Type
         DownLoadingHex.RecordType = (Uint16)HEXDOWN_AsciiConvert(2, Source);
     
@@ -490,9 +488,9 @@ Uint16 UserPrmHexFileDownLoading(char StartState, Uint16 Source)
 	                else 
 						Temp = (Uint16)HEXDOWN_AsciiConvert(4, Source);
 
-					*(Uint16 *)DownLoadingHex.Address.Long = Temp;
+					*(Uint16 *)DownLoadingHex.Address.all = Temp;
 					
-	                DownLoadingHex.Address.Long ++;
+	                DownLoadingHex.Address.all ++;
 	            }
 	            break;
 	        //      End Of File 
@@ -501,7 +499,7 @@ Uint16 UserPrmHexFileDownLoading(char StartState, Uint16 Source)
 	            break;
 	        //      Extended Linear Address 
 	        case 0x04:
-	            DownLoadingHex.Address.Word.High = (Uint16)HEXDOWN_AsciiConvert(4, Source);
+	            DownLoadingHex.Address.Word.High16 = (Uint16)HEXDOWN_AsciiConvert(4, Source);
 	            break;
 	        //      Start Linear Address 
 	        case 0x05:
@@ -558,6 +556,58 @@ char HEXDOWN_AsciiToHex(char Ascii)
 	else if(Ascii >= 'a' && Ascii<= 'f')return(Ascii-'a'+10);
 	else if(Ascii >= 'A' && Ascii <= 'F')return(Ascii-'A'+10);
 	else return(0xFF);
+}
+
+/*------------------------------------------------------------------
+   Example_CsmUnlock
+
+   Unlock the code security module (CSM)
+ 
+   Parameters:
+  
+   Return Value:
+ 
+            STATUS_SUCCESS         CSM is unlocked
+            STATUS_FAIL_UNLOCK     CSM did not unlock
+        
+   Notes:
+     
+-----------------------------------------------------------------*/
+Uint16 CsmUnlock(void)
+{
+    volatile Uint16 temp;
+    
+    // Load the key registers with the current password
+    // These are defined in Example_Flash2833x_CsmKeys.asm
+    
+    EALLOW;
+    CsmRegs.KEY0 = PRG_key0;
+    CsmRegs.KEY1 = PRG_key1;
+    CsmRegs.KEY2 = PRG_key2;
+    CsmRegs.KEY3 = PRG_key3;
+    CsmRegs.KEY4 = PRG_key4;
+    CsmRegs.KEY5 = PRG_key5;
+    CsmRegs.KEY6 = PRG_key6;
+    CsmRegs.KEY7 = PRG_key7;   
+    EDIS;
+
+    // Perform a dummy read of the password locations
+    // if they match the key values, the CSM will unlock 
+        
+    temp = CsmPwl.PSWD0;
+    temp = CsmPwl.PSWD1;
+    temp = CsmPwl.PSWD2;
+    temp = CsmPwl.PSWD3;
+    temp = CsmPwl.PSWD4;
+    temp = CsmPwl.PSWD5;
+    temp = CsmPwl.PSWD6;
+    temp = CsmPwl.PSWD7;
+
+    // If the CSM unlocked, return succes, otherwise return
+    // failure.
+    if ( (CsmRegs.CSMSCR.all & 0x0001) == 0) return STATUS_SUCCESS;
+    else return STATUS_FAIL_CSM_LOCKED;
+    
 }
 
 
