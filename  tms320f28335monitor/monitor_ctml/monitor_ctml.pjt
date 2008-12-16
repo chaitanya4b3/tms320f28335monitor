@@ -51,7 +51,7 @@ Options=-pdr -pdsw225 -fr"$(Proj_dir)\Debug" -i"../include" -d"_DEBUG" -d"LARGE_
 Options=-pdsw225 -o3 -fr"$(Proj_dir)\Release" -d"LARGE_MODEL" -ml -v28
 
 ["Linker" Settings: "Debug"]
-Options=-c -ecode_start -m".\Debug\monitor_ctml.map" -o".\Debug\monitor_ctml.out" -stack0x400 -w -x -i"..\lib" -l"rts2800_fpu32.lib" -l"Flash28335_API_V210.lib"
+Options=-c -e_c_int00 -farheap0x300 -heap1 -m".\Debug\monitor_ctml.map" -o".\Debug\monitor_ctml.out" -stack1 -w -x -i"..\lib" -l"rts2800_fpu32.lib" -l"Flash28335_API_V210.lib"
 
 ["Linker" Settings: "Release"]
 Options=-c -m".\Release\monitor_ctml.map" -o".\Release\monitor_ctml.out" -w -x

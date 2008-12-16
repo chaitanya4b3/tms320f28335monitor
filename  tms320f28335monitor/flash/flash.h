@@ -49,7 +49,7 @@ extern void UserProgramStart(void);
 extern Uint16 CsmUnlock(void);
 
 
-struct Byte8
+struct BYTE8
 {         
 	Uint16     bit0:1;             
 	Uint16     bit1:1;             
@@ -64,19 +64,19 @@ struct Byte8
 union BYTE_DEF
 {
 	Uint16    all;
-	struct Byte8 Bit;
+	struct BYTE8 bit;
 };
 
-struct Long32 
+struct LONG32 
 {
-	Uint16    Low16:16;
-	Uint16    High16:16;
+	Uint16    low16:16;
+	Uint16    high16:16;
 };
 
 union DIVIDE_LONG
 {
 	Uint32    all;
-	struct Long32 Word; 
+	struct LONG32 Word; 
 };
 
 struct HEX_FIELD

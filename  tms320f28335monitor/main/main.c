@@ -38,6 +38,7 @@ void main(void)
 	// The default state is all PIE interrupts disabled and flags
 	// are cleared.
 	// This function is found in the DSP2833x_PieCtrl.c file.
+	MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
 	
 	InitPieCtrl();
 
@@ -59,12 +60,12 @@ void main(void)
 	PrintMenu();
 	TxPrintf("\nMonitor28335]#");
 
+
 	for(;;)
 	{
 		
 		RcvData = SCIa_RxChar();
 		SCIa_TxChar(RcvData);
-
 		switch(RcvData)
 		{
 			case 'M':
@@ -111,8 +112,6 @@ void main(void)
 
 		
 	}
-	
-
 }
 
 

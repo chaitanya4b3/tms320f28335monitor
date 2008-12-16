@@ -70,7 +70,7 @@ void InitXintf(void)
     XintfRegs.XTIMING0.bit.X2TIMING = 1;
 
     // Zone will sample XREADY signal
-    XintfRegs.XTIMING0.bit.USEREADY = 0;
+    XintfRegs.XTIMING0.bit.USEREADY = 0; //jany to 0
     XintfRegs.XTIMING0.bit.READYMODE = 1;  // sample asynchronous
 
     // Size must be either:
@@ -120,7 +120,7 @@ void InitXintf(void)
     XintfRegs.XTIMING7.bit.X2TIMING = 1;
 
     // Zone will sample XREADY signal
-    XintfRegs.XTIMING7.bit.USEREADY = 0;
+    XintfRegs.XTIMING7.bit.USEREADY = 0; //jany to 0
     XintfRegs.XTIMING7.bit.READYMODE = 1;  // sample asynchronous
 
     // Size must be either:
@@ -234,7 +234,7 @@ void InitXintf16Gpio()
      GpioCtrlRegs.GPBMUX1.bit.GPIO38 = 3;  // XWE0
 
 //     GpioCtrlRegs.GPBMUX1.bit.GPIO36 = 3;  // XZCS0
-//     GpioCtrlRegs.GPBMUX1.bit.GPIO37 = 3;  // XZCS7
+     GpioCtrlRegs.GPBMUX1.bit.GPIO37 = 3;  // XZCS7
      GpioCtrlRegs.GPAMUX2.bit.GPIO28 = 3;  // XZCS6
      EDIS;
 }

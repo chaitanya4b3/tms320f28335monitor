@@ -256,6 +256,11 @@ void InitPeripheralClocks(void)
 //
 // This function is not written to be an example of efficient code.
 
+   SysCtrlRegs.PCLKCR0.all = 0;
+   SysCtrlRegs.PCLKCR1.all = 0;
+   SysCtrlRegs.PCLKCR3.all = 0;
+
+
    SysCtrlRegs.PCLKCR0.bit.ADCENCLK = 0;    // ADC
 
    // *IMPORTANT*
@@ -288,7 +293,7 @@ void InitPeripheralClocks(void)
    SysCtrlRegs.PCLKCR1.bit.EPWM4ENCLK = 0;  // ePWM4
    SysCtrlRegs.PCLKCR1.bit.EPWM5ENCLK = 0;  // ePWM5
    SysCtrlRegs.PCLKCR1.bit.EPWM6ENCLK = 0;  // ePWM6
-   SysCtrlRegs.PCLKCR0.bit.TBCLKSYNC = 1;   // Enable TBCLK within the ePWM
+   SysCtrlRegs.PCLKCR0.bit.TBCLKSYNC = 0;   // Enable TBCLK within the ePWM
 
    SysCtrlRegs.PCLKCR1.bit.ECAP3ENCLK = 0;  // eCAP3
    SysCtrlRegs.PCLKCR1.bit.ECAP4ENCLK = 0;  // eCAP4
@@ -303,7 +308,7 @@ void InitPeripheralClocks(void)
    SysCtrlRegs.PCLKCR3.bit.CPUTIMER1ENCLK = 1; // CPU Timer 1
    SysCtrlRegs.PCLKCR3.bit.CPUTIMER2ENCLK = 1; // CPU Timer 2
 
-   SysCtrlRegs.PCLKCR3.bit.DMAENCLK = 1;       // DMA Clock
+   SysCtrlRegs.PCLKCR3.bit.DMAENCLK = 0;       // DMA Clock
    SysCtrlRegs.PCLKCR3.bit.XINTFENCLK = 1;     // XTIMCLK
    SysCtrlRegs.PCLKCR3.bit.GPIOINENCLK = 1;    // GPIO input clock
 

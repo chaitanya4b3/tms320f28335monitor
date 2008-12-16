@@ -219,7 +219,7 @@ SECTIONS
    {
         -lFlash28335_API_V210.lib(.econst) 
         -lFlash28335_API_V210.lib(.text)
-   }                   LOAD = FLASHD, 
+   }                   LOAD = FLASHA, 
                        RUN = RAML0,  
                        LOAD_START(_Flash28_API_LoadStart),
                        LOAD_END(_Flash28_API_LoadEnd),
@@ -229,7 +229,7 @@ SECTIONS
    .pinit              : > FLASHA,     PAGE = 0
    .text               : > FLASHA      PAGE = 0
    codestart           : > BEGIN_FLASH PAGE = 0
-   ramfuncs            : LOAD = FLASHD, 
+   ramfuncs            : LOAD = FLASHA, 
                          RUN = RAML0, 
                          LOAD_START(_RamfuncsLoadStart),
                          LOAD_END(_RamfuncsLoadEnd),
@@ -240,9 +240,9 @@ SECTIONS
    csm_rsvd            : > CSM_RSVD    PAGE = 0
    
    /* Allocate uninitalized data sections: */
-   .stack              : > RAMM1       PAGE = 1
-   .ebss               : > RAML4       PAGE = 1
-   .esysmem            : > RAMM1       PAGE = 1
+   .stack              : > RAMM1       PAGE = 0
+   .ebss               : > RAML1       PAGE = 0
+   .esysmem            : > RAML1       PAGE = 0
 
    /* Initalized sections go in Flash */
    /* For SDFlash to program these, they must be allocated to page 0 */
@@ -250,17 +250,18 @@ SECTIONS
    .switch             : > FLASHA      PAGE = 0      
 
    /* Allocate IQ math areas: */
-   IQmath              : > FLASHC      PAGE = 0                  /* Math Code */
+   IQmath              : > FLASHA     PAGE = 0                  /* Math Code */
    IQmathTables     : > IQTABLES,  PAGE = 0, TYPE = NOLOAD 
    IQmathTables2    : > IQTABLES2, PAGE = 0, TYPE = NOLOAD 
    FPUmathTables    : > FPUTABLES, PAGE = 0, TYPE = NOLOAD 
          
    /* Allocate DMA-accessible RAM sections: */
+/*
    DMARAML4         : > RAML4,     PAGE = 1
    DMARAML5         : > RAML5,     PAGE = 1
    DMARAML6         : > RAML6,     PAGE = 1
    DMARAML7         : > RAML7,     PAGE = 1
-   
+*/   
    /* Allocate 0x400 of XINTF Zone 7 to storing data */
    ZONE7DATA        : > ZONE7B,    PAGE = 1
 

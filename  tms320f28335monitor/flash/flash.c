@@ -10,8 +10,6 @@
 // $Release Date: 11, 8, 2008 $		BY  HWANG HA YUN
 //###########################################################################
 
-#define __FLASH__
-
 #include "DSP2833x_Device.h"     // DSP2833x Headerfile Include File
 #include "DSP2833x_Examples.h"   // DSP2833x Examples Include File
 
@@ -72,7 +70,7 @@ void InitFlashAPI(void)
 	Uint16 flash_Status;
 
 	MemCopy(&Flash28_API_LoadStart, &Flash28_API_LoadEnd, &Flash28_API_RunStart);
-	MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
+
 
 	Flash_CPUScaleFactor = SCALE_FACTOR;
 	Flash_CallbackPtr = NULL; 
@@ -445,7 +443,7 @@ Uint16 UserPrmHexFileDownLoading(char StartState, Uint16 Source)
     int i;
     Uint16	CheckSum;
 	Uint16  Temp;
-    while( !DownLoadingHex.Status.Bit.bit0 && !DownLoadingHex.Status.Bit.bit1 )
+    while( !DownLoadingHex.Status.bit.bit0 && !DownLoadingHex.Status.bit.bit1 )
 	{  
         if( !StartState )
         {
@@ -472,7 +470,7 @@ Uint16 UserPrmHexFileDownLoading(char StartState, Uint16 Source)
         //      Data Length
         DownLoadingHex.DataLength = (Uint16)HEXDOWN_AsciiConvert(2, Source);
         //      Offset Address
-        DownLoadingHex.Address.Word.Low16 = (Uint16)HEXDOWN_AsciiConvert(4, Source);
+        DownLoadingHex.Address.Word.low16 = (Uint16)HEXDOWN_AsciiConvert(4, Source);
         //      Data Type
         DownLoadingHex.RecordType = (Uint16)HEXDOWN_AsciiConvert(2, Source);
     
@@ -495,11 +493,11 @@ Uint16 UserPrmHexFileDownLoading(char StartState, Uint16 Source)
 	            break;
 	        //      End Of File 
 	        case 0x01:
-	            DownLoadingHex.Status.Bit.bit0 = ON;
+	            DownLoadingHex.Status.bit.bit0 = ON;
 	            break;
 	        //      Extended Linear Address 
 	        case 0x04:
-	            DownLoadingHex.Address.Word.High16 = (Uint16)HEXDOWN_AsciiConvert(4, Source);
+	            DownLoadingHex.Address.Word.high16 = (Uint16)HEXDOWN_AsciiConvert(4, Source);
 	            break;
 	        //      Start Linear Address 
 	        case 0x05:
