@@ -1,13 +1,15 @@
 //###########################################################################
 //
-// FILE:    flash.c
+// FILE:   flash.c
 //
-// TITLE:   TMS320F28335MONITOR
+// TITLE:  SSM_ DSPMATE  28335 Monitor Flash
 //
-// ASSUMPTIONS:
+// DESCRIPTION:
+//	    				
+//         Jeon yu hun  
 //
 //###########################################################################
-// $Release Date: 11, 8, 2008 $		BY  HWANG HA YUN
+// $Release Date: 11-25, 2008 $
 //###########################################################################
 
 #include "DSP2833x_Device.h"     // DSP2833x Headerfile Include File
@@ -24,7 +26,7 @@
    FLASHD      : origin = 0x320000, length = 0x008000     
    FLASHC      : origin = 0x328000, length = 0x008000     
    FLASHB      : origin = 0x330000, length = 0x008000     
-   FLASHA      : origin = 0x338000, length = 0x007F80     
+   FLASHA      : origin = 0x338000, length = 0x007F80     <- Monitor
 */
 #define USER_FLASH	(Uint32)0x300000
 
