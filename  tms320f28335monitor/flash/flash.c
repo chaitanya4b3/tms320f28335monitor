@@ -19,7 +19,7 @@
 #define FLASH	1
 
 /*
-   FLASHH      : origin = 0x300000, length = 0x008000    
+   FLASHH      : origin = 0x300000, length = 0x008000    <- User program
    FLASHG      : origin = 0x308000, length = 0x008000    
    FLASHF      : origin = 0x310000, length = 0x008000     
    FLASHE      : origin = 0x318000, length = 0x008000     
@@ -40,14 +40,12 @@ const Uint16 FlashSector[8] = {0x80, 0xC0, 0xE0, 0xF0, 0xF8, 0xFC, 0xFE, 0xFF};
 Uint16 *pFlashAdd;
 Uint16 *pRamAdd;
 
-#define USER_PRG_ADD	(Uint32)0x008300
+#define USER_PRG_ADD	(Uint32)0x008300  // user program code_start
 
-
-//#pragma CODE_SECTION(HEXDOWN_AsciiToHex, "ramfuncs");
-//#pragma CODE_SECTION(HEXDOWN_AsciiConvert, "ramfuncs");
-//#pragma CODE_SECTION(UserPrmHexFileDownLoading, "ramfuncs");
+//#pragma CODE_SECTION(Convert_HEX_AtoI, "ramfuncs");
+//#pragma CODE_SECTION(DownHEXFrom, "ramfuncs");
+//#pragma CODE_SECTION(DownUserProgfrom, "ramfuncs");
 //#pragma CODE_SECTION(FlashBurnPrm, "ramfuncs");
-
 
 
 /*--- Global variables used to interface to the flash routines */
@@ -68,7 +66,7 @@ void InitFlashAPI(void)
      10. Make sure the PLL is not running in limp mode  
 */
 	float32 Version;        // Version of the API in floating point
-	Uint16  VersionHex;     // Version of the API in decimal encoded hex
+	Uint16 VersionHex;     // Version of the API in decimal encoded hex
 	Uint16 flash_Status;
 
 	MemCopy(&Flash28_API_LoadStart, &Flash28_API_LoadEnd, &Flash28_API_RunStart);
@@ -118,6 +116,27 @@ void InitFlashAPI(void)
 	
 }
 
+/*   INITSTRUCT_HEXDOWN   */
+/*************************************************************************
+*	@name    	InitStruct_HexDown
+*	@memo	       HEX 의상태와 현제 어드레스등 HEX 다운로드관련 구조체 ZERO 초기화
+*	@author	       Joen yu hun
+*	@company	SSM
+*    
+**************************************************************************/
+void InitStruct_HexDown(void)
+{
+	memset((void *)&DownLoadingHex, 0x00, sizeof(DownLoadingHex));
+}
+
+/*   ERASE_SELECTFLASH   */
+/*************************************************************************
+*	@name    	Erase_SelectFlash
+*	@memo	       선택된 FLASH 영역을 지운다.
+*	@author	       Joen yu hun
+*	@company	SSM
+*    
+**************************************************************************/
 void Erase_SelectFlash(void)
 {
 	Uint16 Status;
@@ -190,6 +209,14 @@ void Erase_SelectFlash(void)
 	
 }
 
+/*   ERASE_ALLFLASH   */
+/*************************************************************************
+*	@name    	Erase_AllFlash
+*	@memo	       모든 FLASH영역을 지운다. SectorA 는 모니터프로그램이라 제외
+*	@author	       Joen yu hun
+*	@company	SSM
+*    
+**************************************************************************/
 void Erase_AllFlash(void)
 {
 	Uint16 Status;
@@ -208,34 +235,40 @@ void Erase_AllFlash(void)
 	
 }
 
-void SCItoRamDownloadPrm(void)
-
+/*   DOWNFROMSCI   */
+/*************************************************************************
+*	@name    	DownFromSCI
+*	@memo	       씨리얼을 통한 유저프로그램 다운로드
+*	@author	       Joen yu hun
+*	@company	SSM
+*    
+**************************************************************************/
+void DownFromSCI(void)
 {
-	InitUserHexDownVariable();
+	InitStruct_HexDown();
 	TxPrintf("\n  Send User Program *.Hex\n");
 
-	SCIa_TxChar(BELL);
-	SCIa_TxChar(BELL);
+	SCIa_TxChar(BEL);
 
-	if(UserPrmHexFileDownLoading(0, SCI)) 
+	if(DownUserProgfrom(SCI)) 
 		TxPrintf("\n  DownLoading Success !!");
-    else 
+	else 
 	{
 		TxPrintf("\n  DownLoading Failure !!"); 
 		return;
-    }
+	}
 	TxPrintf("\n  Go To User Program !!\n");
 
-	UserProgramStart();
+	Go_UserProgram();
 	
 }
 
 void FlashtoRamDownloadPrm(void)
 {
-	InitUserProgramData();
-
-	InitUserHexDownVariable();		
-	if(UserPrmHexFileDownLoading(0, FLASH)) 
+	SetUserHEXFlashadd();
+	InitStruct_HexDown();
+	
+	if(DownUserProgfrom(FLASH)) 
 		TxPrintf("\n  DownLoading Success !!");
 	else 
 	{
@@ -245,7 +278,7 @@ void FlashtoRamDownloadPrm(void)
 
 	TxPrintf("\n  Go To User Program !!\n");
 
-	UserProgramStart();
+	Go_UserProgram();
 		
 }
 
@@ -262,9 +295,7 @@ void FlashBurnPrm(void)
 	
 	TxPrintf("\n  Send User Program *.Hex\n");
 	
-	SCIa_TxChar(BELL);
-	SCIa_TxChar(BELL);
-
+	SCIa_TxChar(BEL);
 	
 	pFlashAdd = (Uint16 *)USER_FLASH;
 	pRamAdd = (Uint16 *)USER_RAM;
@@ -300,6 +331,7 @@ void FlashBurnPrm(void)
 			Buf[EndCnt++] = RcvData[0];
 			Buf[EndCnt++] = RcvData[1];
 
+			//end of file
 			// :00000001FF
 			if(Buf[0] == ':')
 			if(Buf[1] == '0')
@@ -360,8 +392,8 @@ void FlashBurnPrm(void)
 
 	TxPrintf("\n  Burn User Program End!!\n");
 	
-	SCIa_TxChar(BELL);
-	SCIa_TxChar(BELL);
+	SCIa_TxChar(BEL);
+	SCIa_TxChar(BEL);
 
 #if FLASH_DEBUG
 
@@ -397,29 +429,53 @@ void FlashBurnPrm(void)
 
 }
 
-void UserProgramStart(void)
-{
-	Uint32 Add = USER_PRG_ADD;
 
-	void (*UserPrg)(void) = (void(*)(void))Add;
+/*   GO_USERPROGRAM   */
+/*************************************************************************
+*	@name    	Go_UserProgram
+*	@memo	       사용자 프로그램의 시작주소로 점프한다.
+*	@author	       Joen yu hun
+*	@company	SSM
+*    
+**************************************************************************/
+void Go_UserProgram(void)
+{
+	Uint32 Add = USER_PRG_ADD;   
+
+	void (*UserPrg)(void) = (void (*)(void))Add;
+//	void (*UserPrg)(void) = (*(void)Add);
 
 	DINT;
 
 	UserPrg();
+	 // 유저 프로그램으로 이동 후 스택 메모리 프로그램 전체 초기화됨
 }
 
 
-void InitUserHexDownVariable(void)
-{
-	memset((void *)&DownLoadingHex, 0x00, sizeof(DownLoadingHex));
-}
 
-void InitUserProgramData(void)
+/*   SETUSERHEXFLASHADD   */
+/*************************************************************************
+*	@name    	SetUserHEXFlashadd
+*	@memo	       user 프로그램 hex가 저장되어있는 flash 주소 선택
+*	@author	       Joen yu hun
+*	@company	SSM
+*    
+**************************************************************************/
+void SetUserHEXFlashadd(void)
 {
 	pFlashAdd = (Uint16 *)USER_FLASH;
 }
 
-Uint16 UserProgramData(void)
+
+/*   LOADFLASHDATA   */
+/*************************************************************************
+*	@name    	LoadFlashData
+*	@memo	       플래시에 저장된 유저 hex 데이타를 가져온다
+*	@author	       Joen yu hun
+*	@company	SSM
+*    
+**************************************************************************/
+Uint16 LoadFlashData(void)
 {
 	static Uint16 Flag = OFF;
 	Uint16 Data;
@@ -440,117 +496,170 @@ Uint16 UserProgramData(void)
 }
 
 
-Uint16 UserPrmHexFileDownLoading(char StartState, Uint16 Source)
+/*   DOWNUSERPROGFROM   */
+/*************************************************************************
+*	@name    	DownUserProgfrom
+*	@memo	       유저프로그램을 받아서 재배치 시킨다
+*	@author	       Joen yu hun
+*	@company	SSM
+*    
+**************************************************************************/
+Uint16 DownUserProgfrom(Uint16 Source)
 {
-    int i;
-    Uint16	CheckSum;
-	Uint16  Temp;
-    while( !DownLoadingHex.Status.bit.bit0 && !DownLoadingHex.Status.bit.bit1 )
+	int i;
+	Uint16 CheckSum;
+	Uint16 DataBuffer;
+	while(DownLoadingHex.Status.bit.end_of_file==FALSE)
 	{  
-        if( !StartState )
-        {
-			if(Source == SCI)
+		if(Source == SCI)
+		{
+			while( SCIa_RxChar() != ':' );
+		}
+		else//FLASH
+		{
+			while((i = LoadFlashData()) != ':')
 			{
-				while( SCIa_RxChar() != ':' )
-					;
-			}
-			else//FLASH
-			{
-				while((i = UserProgramData()) != ':')
+				if(i == 'F')
 				{
-					if(i == 'F')
-					{
-						TxPrintf("\n  Flash Invalid!! \n");
-						return FALSE;
-					}
+					TxPrintf("\n  Flash Invalid!! \n");
+					return FALSE;
 				}
 			}
-        }
+		}
 		
-        StartState = 0;
-        DownLoadingHex.Checksum = CheckSum = 0;
-        //      Data Length
-        DownLoadingHex.DataLength = (Uint16)HEXDOWN_AsciiConvert(2, Source);
-        //      Offset Address
-        DownLoadingHex.Address.Word.low16 = (Uint16)HEXDOWN_AsciiConvert(4, Source);
-        //      Data Type
-        DownLoadingHex.RecordType = (Uint16)HEXDOWN_AsciiConvert(2, Source);
-    
-        switch (DownLoadingHex.RecordType) 
+		DownLoadingHex.Checksum = CheckSum = 0;
+		
+		 // hex 포맷의 datalength
+		DownLoadingHex.DataLength = DownHEXFrom(2, Source);
+		 // 32비트 어드레스 상위 16비트 지정
+		DownLoadingHex.Address.Word.low16 = DownHEXFrom(4, Source);
+		// Data Type
+		DownLoadingHex.RecordType = DownHEXFrom(2, Source);
+
+		switch (DownLoadingHex.RecordType) 
 		{
-        //      DATA  
-	        case 0x00:
-	            // in this point, it will be able to write the data to the fresh rom directly.
-	            for( i = 0; i < DownLoadingHex.DataLength; i += 2)
+
+	/*
+	'00'       Data Record
+	'0l'        End of File Record
+	'02'       Extended Segment Address Record
+	'03'       Start Segment Address Record
+	'04'       Extended Linear Address Record
+	'05'       Start Linear Address Record
+	*/
+
+			// '00'       Data Record
+			case 0x00:
+				// data lenth *2 = datalenth in byte
+				for( i = 0; i < DownLoadingHex.DataLength; i += 2)
 				{
-	                if( ( DownLoadingHex.DataLength - i ) == 1 ) 
-						Temp = (Uint16)HEXDOWN_AsciiConvert(2, Source);
-	                else 
-						Temp = (Uint16)HEXDOWN_AsciiConvert(4, Source);
+					if( ( DownLoadingHex.DataLength - i ) == 1 )  //이런경우가 없길..
+					{
+						DataBuffer = DownHEXFrom(2, Source);
+						SCIa_TxString("\nHEX converting Error. it is NOT a 16bit data hex\n");
+					}
+					else 
+						DataBuffer = DownHEXFrom(4, Source); // 16 bit hex
 
-					*(Uint16 *)DownLoadingHex.Address.all = Temp;
-					
-	                DownLoadingHex.Address.all ++;
-	            }
-	            break;
-	        //      End Of File 
-	        case 0x01:
-	            DownLoadingHex.Status.bit.bit0 = ON;
-	            break;
-	        //      Extended Linear Address 
-	        case 0x04:
-	            DownLoadingHex.Address.Word.high16 = (Uint16)HEXDOWN_AsciiConvert(4, Source);
-	            break;
-	        //      Start Linear Address 
-	        case 0x05:
-	            break;
-    
-        }
-        CheckSum = ((~DownLoadingHex.Checksum) + 1) & 0xff;
+						
+					 //2008/12/17    지정 메모리에 데이타 재배치
+					*(Uint16 *)DownLoadingHex.Address.all = DataBuffer;
+					DownLoadingHex.Address.all ++;
+				}
+				break;
 
-        if( CheckSum != (Uint16)HEXDOWN_AsciiConvert(2, Source) )
+			
+			// '01'        End of File Record
+			case 0x01:
+				DownLoadingHex.Status.bit.end_of_file = TRUE;
+				break;
+
+				
+			// '02'       Extended Segment Address Record	
+			case 0x02: //not use
+				break;
+			//'03'       Start Segment Address Record	
+			case 0x03: //not use
+				break;
+
+			//      Extended Linear Address 
+			case 0x04: //use in 32bit addressing
+				 //상위 16비트 재지정
+				DownLoadingHex.Address.Word.high16 = DownHEXFrom(4, Source);
+				break;
+
+			// '05'       Start Linear Address Record
+			case 0x05: //not use
+				break;
+
+		}
+		CheckSum = ((~(DownLoadingHex.Checksum)) + 1) & 0xff; // 2' complement
+
+		if( CheckSum != DownHEXFrom(2, Source) )
 		{
 			SCIa_TxString("\nCheckSumError");
-            return FALSE;
-        }
+			return FALSE;
+		}
 
-		 SCIa_TxChar('.');
-    }
- 
-    return TRUE;
+		 SCIa_TxChar('.'); //Dot per one HEX line
+	}
+
+	return TRUE;
 }
 
-Uint32 HEXDOWN_AsciiConvert( Uint16 NumByte, Uint16 Source)
-{
-    Uint32 Value,i;
-    char Rcvdata;
 
-    Value = 0;
-    
-    for ( i = 0; i < NumByte; i++ ) 
+/*   DOWNHEXFROM   */
+/*************************************************************************
+*	@name    	DownHEXFrom
+*	@memo	       Source에 서 Intel hex 해석후 리턴
+*	@author	       Joen yu hun
+*	@company	SSM
+*    
+**************************************************************************/
+Uint16 DownHEXFrom( Uint16 NumByte, Uint16 Source)
+{
+	Uint16 Value, i, Shift_Count;
+	char Rcvdata;
+
+	Value = 0;
+
+	Shift_Count = NumByte;	//2008/12/17    16bit 데이타 헥사에선 항상 2나 4
+
+	for ( i = 0; i < NumByte; i++ ) 
 	{
 		if(Source == SCI)
-        	Rcvdata = SCIa_RxChar();
+	        	Rcvdata = SCIa_RxChar();
 		else
-			Rcvdata = UserProgramData();
+			Rcvdata = LoadFlashData();
 		
-        Value |= HEXDOWN_AsciiToHex( Rcvdata ) << ( ( (NumByte-1) - i ) * 4 );
-    }
+		Value |= (Uint16)(Convert_HEX_AtoI( Rcvdata ) << ((--Shift_Count) * 4));
+//		Value |= Convert_HEX_AtoI( Rcvdata ) << ( ( (NumByte -1)-i ) * 4 );
+	}
 
+	 //check sum 부분
 	if( NumByte == 4 )
 	{
-        DownLoadingHex.Checksum += (( Value >> 8 ) & 0xff);
-        DownLoadingHex.Checksum += (Value & 0xff);
-    }
-    else
+	    DownLoadingHex.Checksum += (( Value >> 8 ) & 0xff); 
+	    DownLoadingHex.Checksum += (Value & 0xff);
+	}
+	else  // 2바이트일 경우
 	{
-        DownLoadingHex.Checksum += (Value & 0xff);
-    }
+	    DownLoadingHex.Checksum += (Value & 0xff);
+	}
 
 	return Value;
 }
 
-char HEXDOWN_AsciiToHex(char Ascii)
+
+/*   CONVERT_HEX_ATOI   */
+/*************************************************************************
+*	@name    	Convert_HEX_AtoI
+*	@memo	       문자 HEX를 정수형으로 변환한다.
+*	@author	       Joen yu hun
+*	@company	SSM
+*    
+**************************************************************************/
+char Convert_HEX_AtoI(char Ascii)
 {
 	if(Ascii >= '0' && Ascii <= '9')return(Ascii-'0');
 	else if(Ascii >= 'a' && Ascii<= 'f')return(Ascii-'a'+10);
@@ -558,21 +667,15 @@ char HEXDOWN_AsciiToHex(char Ascii)
 	else return(0xFF);
 }
 
-/*------------------------------------------------------------------
-   Example_CsmUnlock
 
-   Unlock the code security module (CSM)
- 
-   Parameters:
-  
-   Return Value:
- 
-            STATUS_SUCCESS         CSM is unlocked
-            STATUS_FAIL_UNLOCK     CSM did not unlock
-        
-   Notes:
-     
------------------------------------------------------------------*/
+/*   CSMUNLOCK   */
+/*************************************************************************
+*	@name    	CsmUnlock
+*	@memo	       Flash API가 L0~L2 사이의 램에서 동작될경우 CSM 을 풀어야 한다.
+*	@author	       Joen yu hun
+*	@company	SSM
+*    
+**************************************************************************/
 Uint16 CsmUnlock(void)
 {
     volatile Uint16 temp;

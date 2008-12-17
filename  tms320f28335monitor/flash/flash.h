@@ -34,24 +34,24 @@ extern Uint16 PRG_key6;
 extern Uint16 PRG_key7;  
 
 extern void InitFlashAPI(void);
+extern void InitStruct_HexDown(void);
 extern void Erase_AllFlash(void);
 extern void Erase_SelectFlash(void);
-extern void InitUserHexDownVariable(void);
-extern void SCItoRamDownloadPrm(void);
+extern void DownFromSCI(void);
 extern void FlashtoRamDownloadPrm(void);
-extern void InitUserProgramData(void);
-extern Uint16 UserProgramData(void);
+extern void SetUserHEXFlashadd(void);
+extern Uint16 LoadFlashData(void);
 extern void FlashBurnPrm(void);
-extern Uint16 UserPrmHexFileDownLoading(char StartState, Uint16 Source);
-extern char HEXDOWN_AsciiToHex(char Ascii);
-extern Uint32 HEXDOWN_AsciiConvert(Uint16 NumByte , Uint16 Source);
-extern void UserProgramStart(void);
+extern Uint16 DownUserProgfrom(Uint16 Source);
+extern char Convert_HEX_AtoI(char Ascii);
+extern Uint16 DownHEXFrom(Uint16 NumByte , Uint16 Source);
+extern void Go_UserProgram(void);
 extern Uint16 CsmUnlock(void);
 
 
 struct BYTE8
 {         
-	Uint16     bit0:1;             
+	Uint16     end_of_file:1;             
 	Uint16     bit1:1;             
 	Uint16     bit2:1;             
 	Uint16     bit3:1;             
@@ -82,10 +82,10 @@ union DIVIDE_LONG
 struct HEX_FIELD
 {							
 	Uint16 DataLength;
-	union DIVIDE_LONG Address;			
+	union DIVIDE_LONG Address; //Uint32			 
 	Uint16 RecordType;
 	Uint16 Checksum;
-	union BYTE_DEF Status;
+	union BYTE_DEF Status; //Uint16, use 8bit
 };
 
 extern volatile struct HEX_FIELD DownLoadingHex;
