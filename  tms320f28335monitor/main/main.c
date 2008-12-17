@@ -38,6 +38,7 @@ void main(void)
 	// The default state is all PIE interrupts disabled and flags
 	// are cleared.
 	// This function is found in the DSP2833x_PieCtrl.c file.
+
 	MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
 	
 	InitPieCtrl();
@@ -85,20 +86,24 @@ void main(void)
 				
 			case 'D':
 			case 'd':
-				SCItoRamDownloadPrm();
-
+				DownFromSCI();
 				break;
 				
+			case 'b':
+			case 'B':
+				FlashBurnPrm();
+				FlashtoRamDownloadPrm();
+
 			case 'G':
 			case 'g':
 				FlashtoRamDownloadPrm();
 				break;
 
-			case 'b':
-			case 'B':
-				FlashBurnPrm();
-				FlashtoRamDownloadPrm();
 			case CR:
+				break;
+
+			case ESC:
+				TxPrintf("\n ESC !!\n");
 				break;
 				
 			default:

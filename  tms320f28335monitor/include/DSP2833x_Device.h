@@ -145,9 +145,14 @@ typedef long double        float64;
 #define ON		1
 #define OFF		0
 
-//ASCII code for UART
-#define CR		0x0D
-#define BELL		0x07
+//ASCII control char code for UART
+#define NUL		0x00
+#define BEL		0x07	 
+#define BS		0x08	//backspace
+#define LF		0x0a	//linefeed
+#define CR		0x0d	//carrige return
+#define ESC		0x1b	//escape
+#define DEL		0x7f	//delete
 
 
 #if DSP28_28335
