@@ -49,7 +49,7 @@ void InitSci(void)
 	SciaRegs.SCIFFRX.bit.RXFFOVRCLR = 0; 	 // 14	   Clear overflow
 	SciaRegs.SCIFFRX.bit.RXFFOVF = 0;		 // 15	   FIFO overflow
 */
-	SciaRegs.SCIFFRX.all = 0x2000; 	//10000000000000
+//	SciaRegs.SCIFFRX.all = 0x2000; 	//10000000000000
 	SciaRegs.SCIFFRX.all=0x2041;		//10000001001111
 
 

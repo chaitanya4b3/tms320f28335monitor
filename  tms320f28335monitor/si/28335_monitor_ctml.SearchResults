@@ -1,0 +1,5 @@
+---- FlashBurnPrm Matches (4 in 3 files) ----
+Flash.c (d:\work\tms320f28335\flash)://#pragma CODE_SECTION(FlashBurnPrm, "ramfuncs");
+Flash.c (d:\work\tms320f28335\flash):void FlashBurnPrm(void)
+Flash.h (d:\work\tms320f28335\flash):extern void FlashBurnPrm(void);
+Main.c (d:\work\tms320f28335\main):				FlashBurnPrm();
