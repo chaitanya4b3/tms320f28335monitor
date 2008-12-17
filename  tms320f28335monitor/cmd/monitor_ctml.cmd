@@ -34,8 +34,8 @@ MEMORY
 
    BEGIN_M0    : origin = 0x000000, length = 0x000002     /* Boot to M0 will go here                      */
    BOOT_RSVD   : origin = 0x000002, length = 0x00004E     /* Part of M0, BOOT rom will use this for stack */               
-   RAMM0       : origin = 0x000050, length = 0x0003B0
-   RAMM1       : origin = 0x000400, length = 0x000400     /* on-chip RAM block M1 */
+   RAMM0_1       : origin = 0x000050, length = 0x0007B0
+//   RAMM1       : origin = 0x000400, length = 0x000400     /* on-chip RAM block M1 */
    ZONE0       : origin = 0x004000, length = 0x001000     /* XINTF zone 0 */
    RAML0       : origin = 0x008000, length = 0x001000     /* on-chip RAM block L0 */
    RAML1       : origin = 0x009000, length = 0x001000     /* on-chip RAM block L1 */
@@ -220,7 +220,7 @@ SECTIONS
         -lFlash28335_API_V210.lib(.econst) 
         -lFlash28335_API_V210.lib(.text)
    }                   LOAD = FLASHA, 
-                       RUN = RAML0,  
+                       RUN = RAMM0_1,  
                        LOAD_START(_Flash28_API_LoadStart),
                        LOAD_END(_Flash28_API_LoadEnd),
                        RUN_START(_Flash28_API_RunStart),
@@ -230,7 +230,7 @@ SECTIONS
    .text               : > FLASHA      PAGE = 0
    codestart           : > BEGIN_FLASH PAGE = 0
    ramfuncs            : LOAD = FLASHA, 
-                         RUN = RAML0, 
+                         RUN = RAMM0_1, 
                          LOAD_START(_RamfuncsLoadStart),
                          LOAD_END(_RamfuncsLoadEnd),
                          RUN_START(_RamfuncsRunStart),
@@ -240,9 +240,9 @@ SECTIONS
    csm_rsvd            : > CSM_RSVD    PAGE = 0
    
    /* Allocate uninitalized data sections: */
-   .stack              : > RAMM1       PAGE = 0
-   .ebss               : > RAML1       PAGE = 0
-   .esysmem            : > RAML1       PAGE = 0
+   .stack              : > RAML0       PAGE = 0
+   .ebss               : > RAMM0_1       PAGE = 0
+   .esysmem            : > RAMM0_1       PAGE = 0
 
    /* Initalized sections go in Flash */
    /* For SDFlash to program these, they must be allocated to page 0 */
