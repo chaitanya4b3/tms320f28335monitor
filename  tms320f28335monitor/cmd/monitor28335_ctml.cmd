@@ -252,7 +252,6 @@ SECTIONS
    DMARAML7         : > RAML7,     PAGE = 1
 */   
    /* Allocate 0x400 of XINTF Zone 7 to storing data */
-   ZONE7DATA        : > ZONE7B,    PAGE = 1
 
    /* .reset is a standard section used by the compiler.  It contains the */ 
    /* the address of the start of _c_int00 for C Code.   /*
