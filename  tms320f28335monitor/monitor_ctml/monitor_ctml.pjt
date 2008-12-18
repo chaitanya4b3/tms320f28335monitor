@@ -42,7 +42,7 @@ Source="..\source\DSP2833x_usDelay.asm"
 Source="..\source\DSP2833x_Xintf.c"
 Source="..\source\Example_Flash2833x_CsmKeys.asm"
 Source="..\VFD\vfd.c"
-Source="..\cmd\monitor_ctml.cmd"
+Source="..\cmd\monitor28335_ctml.cmd"
 
 ["Compiler" Settings: "Debug"]
 Options=-pdr -pdsw225 -fr"$(Proj_dir)\Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32
@@ -56,9 +56,9 @@ Options=-c -e_c_int00 -farheap0x300 -heap1 -m".\Debug\monitor_ctml.map" -o".\Deb
 ["Linker" Settings: "Release"]
 Options=-c -m".\Release\monitor_ctml.map" -o".\Release\monitor_ctml.out" -w -x
 
-["..\cmd\monitor_ctml.cmd" Settings: "Debug"]
+["..\cmd\monitor28335_ctml.cmd" Settings: "Debug"]
 LinkOrder=1
 
-["..\cmd\monitor_ctml.cmd" Settings: "Release"]
+["..\cmd\monitor28335_ctml.cmd" Settings: "Release"]
 LinkOrder=1
 
