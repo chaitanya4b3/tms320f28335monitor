@@ -9,7 +9,7 @@
 //         Jeon yu hun  serial test
 //
 //###########################################################################
-// $Release Date: 11-25, 2008 $
+// $Release Date: 12-5, 2008 $
 //###########################################################################
 #ifndef MAIN_H
 #define MAIN_H
@@ -19,8 +19,8 @@
 extern "C" {
 #endif
 
-extern void InitSystem(void);
 extern void PrintMenu(void);
+extern void HelpMenu(void);
 
 #ifdef __cplusplus
 }
