@@ -86,17 +86,17 @@ void main(void)
 				
 			case 'D':
 			case 'd':
-				DownFromSCI();
+				DownFromSCI();  // 씨리얼로 다운받아 바로 재배치한다. 
 				break;
 				
 			case 'b':
 			case 'B':
-				FlashBurnPrm();
-				FlashtoRamDownloadPrm();
+				SCItoFLASH();  // 씨리얼로 프로그램을 다운받아 FLASH에 저장한다.
+				DownFromFlash(); // FLASH 에서 읽어와서 재배치 한다.
 
 			case 'G':
 			case 'g':
-				FlashtoRamDownloadPrm();
+				DownFromFlash(); // FLASH 에서 읽어와서 재배치 한다.
 				break;
 
 			case CR:

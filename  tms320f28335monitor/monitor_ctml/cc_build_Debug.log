@@ -1,5 +1,5 @@
 --------------------------  monitor_ctml.pjt - Debug  --------------------------
-[main.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "main.c"
+[flash.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "flash.c"
 
 [Linking...] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -@"Debug.lkf"
 <Linking>

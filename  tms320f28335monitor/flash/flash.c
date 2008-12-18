@@ -15,8 +15,8 @@
 #include "DSP2833x_Device.h"     // DSP2833x Headerfile Include File
 #include "DSP2833x_Examples.h"   // DSP2833x Examples Include File
 
-#define SCI		0
-#define FLASH	1
+#define FROMSCI		0
+#define FROMFLASH	1
 
 /*
    FLASHH      : origin = 0x300000, length = 0x008000    <- User program
@@ -35,7 +35,8 @@
 
 #define FLASH_DEBUG		0
 
-const Uint16 FlashSector[8] = {0x80, 0xC0, 0xE0, 0xF0, 0xF8, 0xFC, 0xFE, 0xFF};
+const Uint16 FlashSector[7] = {0x80, 0xC0, 0xE0, 0xF0, 0xF8, 0xFC, 0xFE};
+//							H,      H~G, H~ F, H~E,  H~D,  H~C,  H~B
 
 Uint16 *pFlashAdd;
 Uint16 *pRamAdd;
@@ -45,13 +46,22 @@ Uint16 *pRamAdd;
 //#pragma CODE_SECTION(Convert_HEX_AtoI, "ramfuncs");
 //#pragma CODE_SECTION(DownHEXFrom, "ramfuncs");
 //#pragma CODE_SECTION(DownUserProgfrom, "ramfuncs");
-//#pragma CODE_SECTION(FlashBurnPrm, "ramfuncs");
+//#pragma CODE_SECTION(SCItoFLASH, "ramfuncs");
 
 
 /*--- Global variables used to interface to the flash routines */
 FLASH_ST FlashStatus;
 volatile struct HEX_FIELD DownLoadingHex;
 
+
+/*   INITFLASHAPI   */
+/*************************************************************************
+*	@name    	InitFlashAPI
+*	@memo	       FLASH API를 사용하기 위한 초기화
+*	@author	       Joen yu hun
+*	@company	SSM
+*    
+**************************************************************************/
 void InitFlashAPI(void)
 {
 
@@ -250,7 +260,7 @@ void DownFromSCI(void)
 
 	SCIa_TxChar(BEL);
 
-	if(DownUserProgfrom(SCI)) 
+	if(DownUserProgfrom(FROMSCI)) 
 		TxPrintf("\n  DownLoading Success !!");
 	else 
 	{
@@ -263,12 +273,20 @@ void DownFromSCI(void)
 	
 }
 
-void FlashtoRamDownloadPrm(void)
+/*   DOWNFROMFLASH   */
+/*************************************************************************
+*	@name    	DownFromFlash
+*	@memo	       FLASH 영역에서 유저프로그램 다운로드
+*	@author	       Joen yu hun
+*	@company	SSM
+*    
+**************************************************************************/
+void DownFromFlash(void)
 {
 	SetUserHEXFlashadd();
 	InitStruct_HexDown();
 	
-	if(DownUserProgfrom(FLASH)) 
+	if(DownUserProgfrom(FROMFLASH)) 
 		TxPrintf("\n  DownLoading Success !!");
 	else 
 	{
@@ -282,150 +300,183 @@ void FlashtoRamDownloadPrm(void)
 		
 }
 
-void FlashBurnPrm(void)
+/*   SCITOFLASH   */
+/*************************************************************************
+*	@name    	SCItoFLASH
+*	@memo	       씨리얼로 받은 HEX를 FLASH영역에 저장한다
+*	@author	       Joen yu hun
+*	@company	SSM
+*    
+**************************************************************************/
+void SCItoFLASH(void)
 {
 	char RcvData[2];
-	Uint16 BurnData;
-	Uint16 Status;
-	Uint16 Buf[15] = {0,};		
-	Uint16 EndCnt = 0;
+	Uint16 Header_ignore;
+	Uint16 WriteData;
+	Uint16 HEXBuf[80];		
+	Uint16 ByteCount;
 
-	Uint32 BurnCnt;
-	Uint32 i;
-	
+	Uint16 Loop, WriteLoop;
+	Uint16 Status;
+
+	Uint32 SizeofData; //offset_address
+
+
+// 씨리얼 다운로드
 	TxPrintf("\n  Send User Program *.Hex\n");
 	
 	SCIa_TxChar(BEL);
 	
 	pFlashAdd = (Uint16 *)USER_FLASH;
 	pRamAdd = (Uint16 *)USER_RAM;
-	BurnCnt = 0;
+	SizeofData = 0;
 
+	while((RcvData[0] = SCIa_RxChar())!=':');
+	Header_ignore=0;
+	ByteCount=0;
+	
 	for(;;)
-	{
-		RcvData[0] = SCIa_RxChar();
+	{	
+		if (Header_ignore)
+			RcvData[0] = SCIa_RxChar();
+
+		else
+		{
+			RcvData[0] = ':';
+			Header_ignore=1;
+		}
+
+
 		RcvData[1] = SCIa_RxChar();
 
-		BurnData = ((RcvData[0] << 8) + RcvData[1]);
+		WriteData = ((RcvData[0] << 8) + RcvData[1]);
+		*(pRamAdd + SizeofData++) = WriteData;
 
-		*(pRamAdd + BurnCnt++) = BurnData;
-
+		//end of file check
+		
 		if(RcvData[0] == ':')
 		{
 			SCIa_TxChar('.');
-			EndCnt = 0;
-			Buf[EndCnt++] = RcvData[0];
-			Buf[EndCnt++] = RcvData[1];
+			ByteCount = 0;
+			HEXBuf[ByteCount++] = RcvData[0];
+			HEXBuf[ByteCount++] = RcvData[1];
 		}
-		else if(RcvData[1] == ':')
-		{
-			SCIa_TxChar('.');
-			EndCnt = 0;
-			Buf[EndCnt++] = RcvData[1];
-		}
+ //2008/12/18    마지막줄엔 오로지 CR만 있었슴 LF 없음
 		else
 		{
-			if(EndCnt > 13)
-				EndCnt = 0;
-			
-			Buf[EndCnt++] = RcvData[0];
-			Buf[EndCnt++] = RcvData[1];
+			HEXBuf[ByteCount++] = RcvData[0];
+			HEXBuf[ByteCount++] = RcvData[1];
+			#ifdef DEBUG_FLASHDOWN
+			if(RcvData[1] == CR) TxPrintf(",");
+			#endif
+		}
 
+		if(ByteCount == 12)
+		{
+			ByteCount = 0;
 			//end of file
 			// :00000001FF
-			if(Buf[0] == ':')
-			if(Buf[1] == '0')
-			if(Buf[2] == '0')
-			if(Buf[3] == '0')
-			if(Buf[4] == '0')
-			if(Buf[5] == '0')
-			if(Buf[6] == '0')
-			if(Buf[7] == '0')			
-			if(Buf[8] == '1')
-			if(Buf[9] == 'F')
-			if(Buf[10] == 'F')
-				
-				break;
+			if(HEXBuf[0] == ':')
+			 if(HEXBuf[1] == '0')
+			  if(HEXBuf[2] == '0')
+			   if(HEXBuf[3] == '0')
+			    if(HEXBuf[4] == '0')
+			     if(HEXBuf[5] == '0')
+			      if(HEXBuf[6] == '0')
+			       if(HEXBuf[7] == '0')			
+			        if(HEXBuf[8] == '1')
+			         if(HEXBuf[9] == 'F')
+			          if(HEXBuf[10] == 'F')
+				    break;
 		}
 
 	
 	}
 
-	TxPrintf("\n  %ld word downloded!!\n", BurnCnt);
-	
+	TxPrintf("\n  %ld Word Download Complete!!\n", SizeofData);
 
-	for(i = 1; i < 8; i++)
+
+
+ // flash erase
+
+	for(Loop = 0; Loop < 7; Loop++)
 	{
-		if(BurnCnt < ((Uint32)0x8000*i - 0x100))
+		if(SizeofData < ((Uint32)0x8000*(Loop+1)))
 		{
-			TxPrintf("\n  Erase Flash Sector !!\n");
-			Status = Flash_Erase(FlashSector[i-1], &FlashStatus);
-			if(Status != STATUS_SUCCESS)
-			{
-				TxPrintf("\n  Flash Error!!\n");
-				return;
-			}
-			else
-			{
-				TxPrintf("\n  Flash Sector Cnt : %ld Erased !!\n", i);
-				i = 0;
-				break;
-			}
+			break;
 		}
-	}
-	if(i != 0)
-	{
-		TxPrintf("\n  User Program Size too Big !!\n");
-		return;
+		else;
 	}
 
-
-	for(i = 0; i < BurnCnt; i++)
+	if (Loop ==0) //H 경우 
 	{
-		Status = Flash_Program(pFlashAdd++,pRamAdd++,1,&FlashStatus);
+		TxPrintf("\n  Erase Flash Sector H");
+		
+		Status = Flash_Erase(FlashSector[Loop], &FlashStatus);
+		
 		if(Status != STATUS_SUCCESS)
 		{
 			TxPrintf("\n  Flash Error!!\n");
 			return;
-		}	
+		}
+		else
+		{
+			TxPrintf("\n  Flash Erase complete!! ");
+		}
+
+
 	}
+	else if (Loop >6)  //2008/12/18    용량초과
+	{
+		TxPrintf("\n  User Program Size too Big !!\n");
+		TxPrintf("\n  Error!! \n");		
+		return;
+	}
+	else //H~B 사이인 경우 
+	{
+		TxPrintf("\n  Erase Flash Sector  %c~%c \n",('H'-Loop), 'H');
+		
+		Status = Flash_Erase(FlashSector[Loop], &FlashStatus);
+		
+		if(Status != STATUS_SUCCESS)
+		{
+			TxPrintf("\n  Flash Error!!\n");
+			return;
+		}
+		else
+		{
+			TxPrintf("\n  Flash Erase complete!! ");
+		}
+	}
+		
+
+//Flash Write
+
+//pFlashAdd = (Uint16 *)USER_FLASH;
+//pRamAdd = (Uint16 *)USER_RAM;
+
+
+
+	for(WriteLoop = 0; WriteLoop < Loop; WriteLoop++)
+	{			
+		Status = Flash_Program(pFlashAdd+(0x8000*WriteLoop),pRamAdd+(0x8000*WriteLoop),0x8000*(WriteLoop+1),&FlashStatus);
+		if(Status != STATUS_SUCCESS)
+		{
+			TxPrintf("\n  Flash Write Error!!\n");
+			return;
+		}	
+
+	}
+	Status = Flash_Program(pFlashAdd+(0x8000*WriteLoop),pRamAdd+(0x8000*WriteLoop),SizeofData-(0x8000*WriteLoop),&FlashStatus);
+	if(Status != STATUS_SUCCESS)
+	{
+		TxPrintf("\n  Flash Write Error!!\n");
+		return;
+	}	
 
 	TxPrintf("\n  Burn User Program End!!\n");
 	
 	SCIa_TxChar(BEL);
-	SCIa_TxChar(BEL);
-
-#if FLASH_DEBUG
-
-	pFlashAdd = (Uint16 *)USER_FLASH;
-
-	for(i = 0; i < BurnCnt; i++)
-	{
-		RcvData[0] = *(pFlashAdd++);
-
-		Buf[0] = RcvData[0] >> 8;
-
-		if((char)Buf[0] == CR)
-		{
-			SCIa_TxChar('\r');
-			SCIa_TxChar('\n');
-		}
-		else
-			SCIa_TxChar(Buf[0]);
-		
-		Buf[1] = RcvData[0] & 0x00ff;
-		
-		if((char)Buf[1] == CR)
-		{
-			SCIa_TxChar('\r');
-			SCIa_TxChar('\n');
-		}
-		else
-			SCIa_TxChar(Buf[1]);
-		
-	}
-#endif
-	
 
 }
 
@@ -511,7 +562,7 @@ Uint16 DownUserProgfrom(Uint16 Source)
 	Uint16 DataBuffer;
 	while(DownLoadingHex.Status.bit.end_of_file==FALSE)
 	{  
-		if(Source == SCI)
+		if(Source == FROMSCI)
 		{
 			while( SCIa_RxChar() != ':' );
 		}
@@ -627,7 +678,7 @@ Uint16 DownHEXFrom( Uint16 NumByte, Uint16 Source)
 
 	for ( i = 0; i < NumByte; i++ ) 
 	{
-		if(Source == SCI)
+		if(Source == FROMSCI)
 	        	Rcvdata = SCIa_RxChar();
 		else
 			Rcvdata = LoadFlashData();
