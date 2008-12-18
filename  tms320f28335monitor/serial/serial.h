@@ -9,7 +9,7 @@
 //         Jeon yu hun  serial test
 //
 //###########################################################################
-// $Release Date: 11-25, 2008 $
+// $Release Date: 12-13, 2008 $
 //###########################################################################
 
 #ifndef SERIAL_H
@@ -21,9 +21,16 @@ extern "C" {
 #endif
 
 extern char SCIa_RxChar(void);
-extern void SCIa_TxChar(char Data);
-extern void SCIa_TxString(char *Str);
-extern void TxPrintf(char *Form, ... );
+extern char SCIb_RxChar(void);
+extern char SCIc_RxChar(void);
+
+extern void SCIx_TxChar(char Data, volatile struct SCI_REGS *sciadd);
+extern void SCIx_TxString(char *Str, volatile struct SCI_REGS *sciadd);
+extern void SCIa_Printf(char *Form, ... );
+extern void SCIb_Printf(char *Form, ... );
+extern void SCIc_Printf(char *Form, ... );
+
+
 
 #ifdef __cplusplus
 }
