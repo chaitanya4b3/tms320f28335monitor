@@ -25,7 +25,7 @@
    FLASHE      : origin = 0x318000, length = 0x008000     
    FLASHD      : origin = 0x320000, length = 0x008000     
    FLASHC      : origin = 0x328000, length = 0x008000     
-   FLASHB      : origin = 0x330000, length = 0x008000     
+   FLASHB      : origin = 0x330000, length = 0x008000     <- user program stored data
    FLASHA      : origin = 0x338000, length = 0x007F80     <- Monitor
 */
 #define USER_FLASH	(Uint32)0x300000
@@ -98,7 +98,7 @@ void InitFlashAPI(void)
 	flash_Status = CsmUnlock();
 	if(flash_Status != STATUS_SUCCESS) 
 	{
-		TxPrintf("\n  Flash Csmunlock Error!!\n");
+		SCIa_Printf("\n  Flash Csmunlock Error!!\n");
 		asm("    ESTOP0");
 	}
 
@@ -109,7 +109,7 @@ void InitFlashAPI(void)
 	{
 		// Unexpected API version
 		// Make a decision based on this info. 
-		TxPrintf("\n  Flash API version Error!!\n");
+		SCIa_Printf("\n  Flash API version Error!!\n");
 		asm("    ESTOP0");
 	}   
 
@@ -119,7 +119,7 @@ void InitFlashAPI(void)
 	{
 		// Unexpected API version
 		// Make a decision based on this info. 
-		TxPrintf("\n  Flash API version Error!!\n");
+		SCIa_Printf("\n  Flash API version Error!!\n");
 		asm("    ESTOP0");
 	}
    
@@ -153,56 +153,56 @@ void Erase_SelectFlash(void)
 	char RcvData;
 	Uint16 EraseSector;
 
-	TxPrintf("\nErase sector... Select Sector(B~H) :");
+	SCIa_Printf("\nErase sector... Select Sector(B~H) :");
 
 	RcvData = SCIa_RxChar();
-	SCIa_TxChar(RcvData);
+	SCIx_TxChar(RcvData, &SciaRegs);
 	switch(RcvData)
 	{
 		case 'b':
 		case 'B':
 			EraseSector = SECTORB;
-			TxPrintf("\n  Erase SectorB.\n");
+			SCIa_Printf("\n  Erase Sector B.\n");
 			break;
 			
 		case 'c':
 		case 'C':
 			EraseSector = SECTORC;
-			TxPrintf("\n  Erase SectorC.\n");
+			SCIa_Printf("\n  Erase Sector C.\n");
 			break;
 			
 		case 'd':
 		case 'D':
 			EraseSector = SECTORD;
-			TxPrintf("\n  Erase SectorD.\n");
+			SCIa_Printf("\n  Erase Sector D.\n");
 			break;
 
 		case 'e':
 		case 'E':
 			EraseSector = SECTORE;
-			TxPrintf("\n  Erase SectorE.\n");
+			SCIa_Printf("\n  Erase Sector E.\n");
 			break;
 
 		case 'f':
 		case 'F':
 			EraseSector = SECTORF;
-			TxPrintf("\n  Erase SectorF.\n");
+			SCIa_Printf("\n  Erase Sector F.\n");
 			break;
 
 		case 'g':
 		case 'G':
 			EraseSector = SECTORG;
-			TxPrintf("\n  Erase SectorG.\n");
+			SCIa_Printf("\n  Erase Sector G.\n");
 			break;
 
 		case 'h':
 		case 'H':
 			EraseSector = SECTORH;
-			TxPrintf("\n  Erase SectorH.\n");
+			SCIa_Printf("\n  Erase Sector H.\n");
 			break;
 			
 		default:
-			TxPrintf("\nWrong Sector Selected Type B to H\n");
+			SCIa_Printf("\nWrong Sector Selected. You can select B to H\n");
 			return;
 	}
 
@@ -210,11 +210,11 @@ void Erase_SelectFlash(void)
 
 	if(Status != STATUS_SUCCESS)
 	{
-		TxPrintf("\n  Flash_Erase Error!!\n");
+		SCIa_Printf("\n  Erase Sector %c Error!!\n",RcvData);
 		return;
 	}
 
-	TxPrintf("\n  Erase Sector %c OK!!\n",RcvData);
+	SCIa_Printf("\n  Erase Sector %c OK!!\n",RcvData);
 
 	
 }
@@ -231,17 +231,17 @@ void Erase_AllFlash(void)
 {
 	Uint16 Status;
 
-	TxPrintf("\n  Erase All Flash Sector.\n");
+	SCIa_Printf("\n  Erase All Flash Sector.\n");
 				
 	Status = Flash_Erase(SECTORB|SECTORC|SECTORD|SECTORE|SECTORF|SECTORG|SECTORH, &FlashStatus);
 	
 	if(Status != STATUS_SUCCESS)
 	{
-		TxPrintf("\n  Flash_Erase Error!!\n");
+		SCIa_Printf("\n  Flash_Erase Error!!\n");
 		return;
 	}
 	
-	TxPrintf("\n  Erase All Flash Sector OK!!(SECTOR B ~ SECTOR H)\n");
+	SCIa_Printf("\n  Erase All Flash Sector OK!!(SECTOR B ~ SECTOR H)\n");
 	
 }
 
@@ -256,18 +256,18 @@ void Erase_AllFlash(void)
 void DownFromSCI(void)
 {
 	InitStruct_HexDown();
-	TxPrintf("\n  Send User Program *.Hex\n");
+	SCIa_Printf("\n  Send User Program *.Hex\n");
 
-	SCIa_TxChar(BEL);
+	SCIx_TxChar(BEL,&SciaRegs);
 
 	if(DownUserProgfrom(FROMSCI)) 
-		TxPrintf("\n  DownLoading Success !!");
+		SCIa_Printf("\n  DownLoading Success !!");
 	else 
 	{
-		TxPrintf("\n  DownLoading Failure !!"); 
+		SCIa_Printf("\n  DownLoading Failure !!"); 
 		return;
 	}
-	TxPrintf("\n  Go To User Program !!\n");
+	SCIa_Printf("\n  Go To User Program !!\n");
 
 	Go_UserProgram();
 	
@@ -287,14 +287,14 @@ void DownFromFlash(void)
 	InitStruct_HexDown();
 	
 	if(DownUserProgfrom(FROMFLASH)) 
-		TxPrintf("\n  DownLoading Success !!");
+		SCIa_Printf("\n  DownLoading Success !!");
 	else 
 	{
-		TxPrintf("\n  DownLoading Failure !!"); 
+		SCIa_Printf("\n  DownLoading Failure !!"); 
 		//return;//
 	}
 
-	TxPrintf("\n  Go To User Program !!\n");
+	SCIa_Printf("\n  Go To User Program !!\n");
 
 	Go_UserProgram();
 		
@@ -323,9 +323,9 @@ void SCItoFLASH(void)
 
 
 // 씨리얼 다운로드
-	TxPrintf("\n  Send User Program *.Hex\n");
+	SCIa_Printf("\n  Send User Program *.Hex\n");
 	
-	SCIa_TxChar(BEL);
+	SCIx_TxChar(BEL,&SciaRegs);
 	
 	pFlashAdd = (Uint16 *)USER_FLASH;
 	pRamAdd = (Uint16 *)USER_RAM;
@@ -356,7 +356,7 @@ void SCItoFLASH(void)
 		
 		if(RcvData[0] == ':')
 		{
-			SCIa_TxChar('.');
+			SCIx_TxChar('.',&SciaRegs);
 			ByteCount = 0;
 			HEXBuf[ByteCount++] = RcvData[0];
 			HEXBuf[ByteCount++] = RcvData[1];
@@ -367,7 +367,7 @@ void SCItoFLASH(void)
 			HEXBuf[ByteCount++] = RcvData[0];
 			HEXBuf[ByteCount++] = RcvData[1];
 			#ifdef DEBUG_FLASHDOWN
-			if(RcvData[1] == CR) TxPrintf(",");
+			if(RcvData[1] == CR) SCIa_Printf(",");
 			#endif
 		}
 
@@ -393,7 +393,7 @@ void SCItoFLASH(void)
 	
 	}
 
-	TxPrintf("\n  %ld Word Download Complete!!\n", SizeofData);
+	SCIa_Printf("\n  %ld Word Download Complete!!\n", SizeofData);
 
 
 
@@ -410,42 +410,42 @@ void SCItoFLASH(void)
 
 	if (Loop ==0) //H 경우 
 	{
-		TxPrintf("\n  Erase Flash Sector H");
+		SCIa_Printf("\n  Erase Flash Sector H");
 		
 		Status = Flash_Erase(FlashSector[Loop], &FlashStatus);
 		
 		if(Status != STATUS_SUCCESS)
 		{
-			TxPrintf("\n  Flash Error!!\n");
+			SCIa_Printf("\n  Flash Error!!\n");
 			return;
 		}
 		else
 		{
-			TxPrintf("\n  Flash Erase complete!! ");
+			SCIa_Printf("\n  Flash Erase complete!! ");
 		}
 
 
 	}
 	else if (Loop >6)  //2008/12/18    용량초과
 	{
-		TxPrintf("\n  User Program Size too Big !!\n");
-		TxPrintf("\n  Error!! \n");		
+		SCIa_Printf("\n  User Program Size too Big !!\n");
+		SCIa_Printf("\n  Error!! \n");		
 		return;
 	}
 	else //H~B 사이인 경우 
 	{
-		TxPrintf("\n  Erase Flash Sector  %c~%c \n",('H'-Loop), 'H');
+		SCIa_Printf("\n  Erase Flash Sector  %c~%c \n",('H'-Loop), 'H');
 		
 		Status = Flash_Erase(FlashSector[Loop], &FlashStatus);
 		
 		if(Status != STATUS_SUCCESS)
 		{
-			TxPrintf("\n  Flash Error!!\n");
+			SCIa_Printf("\n  Flash Error!!\n");
 			return;
 		}
 		else
 		{
-			TxPrintf("\n  Flash Erase complete!! ");
+			SCIa_Printf("\n  Flash Erase complete!! ");
 		}
 	}
 		
@@ -462,7 +462,7 @@ void SCItoFLASH(void)
 		Status = Flash_Program(pFlashAdd+(0x8000*WriteLoop),pRamAdd+(0x8000*WriteLoop),0x8000*(WriteLoop+1),&FlashStatus);
 		if(Status != STATUS_SUCCESS)
 		{
-			TxPrintf("\n  Flash Write Error!!\n");
+			SCIa_Printf("\n  Flash Write Error!!\n");
 			return;
 		}	
 
@@ -470,13 +470,13 @@ void SCItoFLASH(void)
 	Status = Flash_Program(pFlashAdd+(0x8000*WriteLoop),pRamAdd+(0x8000*WriteLoop),SizeofData-(0x8000*WriteLoop),&FlashStatus);
 	if(Status != STATUS_SUCCESS)
 	{
-		TxPrintf("\n  Flash Write Error!!\n");
+		SCIa_Printf("\n  Flash Write Error!!\n");
 		return;
 	}	
 
-	TxPrintf("\n  Burn User Program End!!\n");
+	SCIa_Printf("\n  Burn User Program End!!\n");
 	
-	SCIa_TxChar(BEL);
+	SCIx_TxChar(BEL,&SciaRegs);
 
 }
 
@@ -572,7 +572,7 @@ Uint16 DownUserProgfrom(Uint16 Source)
 			{
 				if(i == 'F')
 				{
-					TxPrintf("\n  Flash Invalid!! \n");
+					SCIa_Printf("\n  Flash Invalid!! \n");
 					return FALSE;
 				}
 			}
@@ -607,7 +607,7 @@ Uint16 DownUserProgfrom(Uint16 Source)
 					if( ( DownLoadingHex.DataLength - i ) == 1 )  //이런경우가 없길..
 					{
 						DataBuffer = DownHEXFrom(2, Source);
-						SCIa_TxString("\nHEX converting Error. it is NOT a 16bit data hex\n");
+						SCIa_Printf("\nHEX converting Error. it is NOT a 16bit data hex\n");
 					}
 					else 
 						DataBuffer = DownHEXFrom(4, Source); // 16 bit hex
@@ -648,11 +648,11 @@ Uint16 DownUserProgfrom(Uint16 Source)
 
 		if( CheckSum != DownHEXFrom(2, Source) )
 		{
-			SCIa_TxString("\nCheckSumError");
+			SCIa_Printf("\nCheckSumError");
 			return FALSE;
 		}
 
-		 SCIa_TxChar('.'); //Dot per one HEX line
+		 SCIx_TxChar('.',&SciaRegs); //Dot per one HEX line
 	}
 
 	return TRUE;
