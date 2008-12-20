@@ -35,9 +35,11 @@
 //#define ReleaseVersion	0.2 // ram down complete
 //#define ReleaseVersion	0.3 // flash down complete
 //#define ReleaseVersion	0.4 // auto run complete
-#define ReleaseVersion	0.5 // serial.c function modify
+//#define ReleaseVersion	0.5 // serial.c function modify
+#define ReleaseVersion	0.6 // Xintf compatable 16bt and 32bit
 
 #define ONEWAITSEC		0.5  //auto run wait 1 time. full wait time = ONEWAITSEC * 3
+
 
 interrupt void cpu_timer0_isr(void);
 
@@ -107,6 +109,7 @@ void main(void)
 	// 자동 실행
 	RcvData = SCIa_RxChar();
 	DINT;   // Enable Global interrupt INTM				
+
 
 	HelpMenu();
 	SCIa_Printf("\nMonitor28335_ctml]#");

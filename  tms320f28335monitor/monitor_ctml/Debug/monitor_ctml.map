@@ -1,10 +1,10 @@
 ******************************************************************************
              TMS320C2000 Linker PC v5.1.1                      
 ******************************************************************************
->> Linked Fri Dec 19 05:14:10 2008
+>> Linked Sat Dec 20 17:32:55 2008
 
 OUTPUT FILE NAME:   <./Debug/monitor_ctml.out>
-ENTRY POINT SYMBOL: "_c_int00"  address: 0033a545
+ENTRY POINT SYMBOL: "_c_int00"  address: 0033a4bc
 
 
 MEMORY CONFIGURATION
@@ -14,7 +14,7 @@ MEMORY CONFIGURATION
 PAGE 0:
   BEGIN_M0              00000000   00000002  00000000  00000002  RWIX
   BOOT_RSVD             00000002   0000004e  00000000  0000004e  RWIX
-  RAMM0_1               00000050   000007b0  00000702  000000ae  RWIX
+  RAMM0_1               00000050   000007b0  000006c4  000000ec  RWIX
   ZONE0                 00004000   00001000  00000000  00001000  RWIX
   RAML0                 00008000   00001000  00000001  00000fff  RWIX
   RAML1                 00009000   00001000  00000000  00001000  RWIX
@@ -34,7 +34,7 @@ PAGE 0:
   FLASHD                00320000   00008000  00000000  00008000  RWIX
   FLASHC                00328000   00008000  00000000  00008000  RWIX
   FLASHB                00330000   00008000  00000000  00008000  RWIX
-  FLASHA                00338000   00007f80  0000338b  00004bf5  RWIX
+  FLASHA                00338000   00007f80  00003302  00004c7e  RWIX
   CSM_RSVD              0033ff80   00000076  00000076  00000000  RWIX
   BEGIN_FLASH           0033fff6   00000002  00000002  00000000  RWIX
   CSM_PWL_A             0033fff8   00000008  00000008  00000000  RWIX
@@ -107,7 +107,7 @@ section   page    origin      length       input sections
 --------  ----  ----------  ----------   ----------------
 .pinit     0    00338000    00000000     UNINITIALIZED
 
-.ebss      0    00000558    000001dc     UNINITIALIZED
+.ebss      0    00000558    0000019e     UNINITIALIZED
                   00000558    00000018     DSP2833x_CpuTimers.obj (.ebss)
                   00000570    00000004     Flash28335_API_V210.lib : Flash28_Globals.obj (.ebss)
                   00000574    00000004     rts2800_fpu32.lib : _lock.obj (.ebss)
@@ -116,8 +116,6 @@ section   page    origin      length       input sections
                   0000057d    00000003     --HOLE--
                   00000580    00000164     serial.obj (.ebss)
                   000006e4    00000012     flash.obj (.ebss)
-                  000006f6    0000000a     --HOLE--
-                  00000700    00000034     vfd.obj (.ebss)
 
 .stack     0    00008000    00000001     UNINITIALIZED
                   00008000    00000001     --HOLE--
@@ -143,7 +141,7 @@ Flash28_API
                   003384ff    00000005                             : Flash28_Version.obj (.text)
                   00338504    00000003                             : Flash28_Version_Hex.obj (.text)
 
-.text      0    00338507    000023da     
+.text      0    00338507    00002351     
                   00338507    0000094a     rts2800_fpu32.lib : _printfi.obj (.text)
                   00338e51    0000040d     DSP2833x_DMA.obj (.text)
                   0033925e    000003c5     flash.obj (.text)
@@ -152,72 +150,71 @@ Flash28_API
                   00339af7    00000185     main.obj (.text)
                   00339c7c    0000016c     DSP2833x_Mcbsp.obj (.text)
                   00339de8    00000107     rts2800_fpu32.lib : ll_div.obj (.text)
-                  00339eef    000000fa     DSP2833x_Xintf.obj (.text)
-                  00339fe9    000000c8     DSP2833x_EPwm.obj (.text)
-                  0033a0b1    000000c2     DSP2833x_SysCtrl.obj (.text)
-                  0033a173    0000009c     rts2800_fpu32.lib : fd_add.obj (.text)
-                  0033a20f    0000008b                       : fd_div.obj (.text)
-                  0033a29a    00000087     vfd.obj (.text)
-                  0033a321    00000083     rts2800_fpu32.lib : fd_mpy.obj (.text)
-                  0033a3a4    00000079     DSP2833x_CpuTimers.obj (.text)
-                  0033a41d    00000076     serial.obj (.text)
-                  0033a493    0000005c     DSP2833x_ECap.obj (.text)
-                  0033a4ef    00000056     DSP2833x_EQep.obj (.text)
-                  0033a545    00000046     rts2800_fpu32.lib : boot.obj (.text)
-                  0033a58b    00000039     DSP2833x_Sci.obj (.text)
-                  0033a5c4    00000031     rts2800_fpu32.lib : atoi.obj (.text)
-                  0033a5f5    0000002e                       : ltoa.obj (.text)
-                  0033a623    0000002e                       : vsprintf.obj (.text)
-                  0033a651    0000002a     DSP2833x_Spi.obj (.text)
-                  0033a67b    0000002a     rts2800_fpu32.lib : fd_cmp.obj (.text)
-                  0033a6a5    0000002a                       : l_div.obj (.text)
-                  0033a6cf    00000028     DSP2833x_PieCtrl.obj (.text)
-                  0033a6f7    00000023     DSP2833x_Gpio.obj (.text)
-                  0033a71a    00000021     rts2800_fpu32.lib : fd_toi.obj (.text)
-                  0033a73b    00000021                       : memcpy_ff.obj (.text)
-                  0033a75c    00000020     DSP2833x_PieVect.obj (.text)
-                  0033a77c    0000001f     rts2800_fpu32.lib : fd_tol.obj (.text)
-                  0033a79b    0000001e                       : ll_cmp.obj (.text)
-                  0033a7b9    0000001c                       : fs_tofd.obj (.text)
-                  0033a7d5    0000001c                       : l_tofd.obj (.text)
-                  0033a7f1    0000001b                       : args_main.obj (.text)
-                  0033a80c    00000019                       : exit.obj (.text)
-                  0033a825    00000017     DSP2833x_I2C.obj (.text)
-                  0033a83c    00000017     DSP2833x_MemCopy.obj (.text)
-                  0033a853    00000014     DSP2833x_Adc.obj (.text)
-                  0033a867    00000014     rts2800_fpu32.lib : ll_mpy.obj (.text)
-                  0033a87b    00000012                       : memccpy.obj (.text)
-                  0033a88d    0000000e                       : fd_sub.obj (.text)
-                  0033a89b    0000000a                       : strlen.obj (.text)
-                  0033a8a5    00000009                       : _lock.obj (.text)
-                  0033a8ae    00000009                       : fd_neg.obj (.text)
-                  0033a8b7    00000009                       : strcpy.obj (.text)
-                  0033a8c0    00000008     DSP2833x_CodeStartBranch.obj (.text)
-                  0033a8c8    00000008     Example_Flash2833x_CsmKeys.obj (.text)
-                  0033a8d0    00000007     DSP2833x_DisInt.obj (.text)
-                  0033a8d7    00000007     rts2800_fpu32.lib : memset.obj (.text)
-                  0033a8de    00000003     DSP2833x_DBGIER.obj (.text)
+                  00339eef    000000f8     DSP2833x_Xintf.obj (.text)
+                  00339fe7    000000c8     DSP2833x_EPwm.obj (.text)
+                  0033a0af    000000c2     DSP2833x_SysCtrl.obj (.text)
+                  0033a171    0000009c     rts2800_fpu32.lib : fd_add.obj (.text)
+                  0033a20d    0000008b                       : fd_div.obj (.text)
+                  0033a298    00000083                       : fd_mpy.obj (.text)
+                  0033a31b    00000079     DSP2833x_CpuTimers.obj (.text)
+                  0033a394    00000076     serial.obj (.text)
+                  0033a40a    0000005c     DSP2833x_ECap.obj (.text)
+                  0033a466    00000056     DSP2833x_EQep.obj (.text)
+                  0033a4bc    00000046     rts2800_fpu32.lib : boot.obj (.text)
+                  0033a502    00000039     DSP2833x_Sci.obj (.text)
+                  0033a53b    00000031     rts2800_fpu32.lib : atoi.obj (.text)
+                  0033a56c    0000002e                       : ltoa.obj (.text)
+                  0033a59a    0000002e                       : vsprintf.obj (.text)
+                  0033a5c8    0000002a     DSP2833x_Spi.obj (.text)
+                  0033a5f2    0000002a     rts2800_fpu32.lib : fd_cmp.obj (.text)
+                  0033a61c    0000002a                       : l_div.obj (.text)
+                  0033a646    00000028     DSP2833x_PieCtrl.obj (.text)
+                  0033a66e    00000023     DSP2833x_Gpio.obj (.text)
+                  0033a691    00000021     rts2800_fpu32.lib : fd_toi.obj (.text)
+                  0033a6b2    00000021                       : memcpy_ff.obj (.text)
+                  0033a6d3    00000020     DSP2833x_PieVect.obj (.text)
+                  0033a6f3    0000001f     rts2800_fpu32.lib : fd_tol.obj (.text)
+                  0033a712    0000001e                       : ll_cmp.obj (.text)
+                  0033a730    0000001c                       : fs_tofd.obj (.text)
+                  0033a74c    0000001c                       : l_tofd.obj (.text)
+                  0033a768    0000001b                       : args_main.obj (.text)
+                  0033a783    00000019                       : exit.obj (.text)
+                  0033a79c    00000017     DSP2833x_I2C.obj (.text)
+                  0033a7b3    00000017     DSP2833x_MemCopy.obj (.text)
+                  0033a7ca    00000014     DSP2833x_Adc.obj (.text)
+                  0033a7de    00000014     rts2800_fpu32.lib : ll_mpy.obj (.text)
+                  0033a7f2    00000012                       : memccpy.obj (.text)
+                  0033a804    0000000e                       : fd_sub.obj (.text)
+                  0033a812    0000000a                       : strlen.obj (.text)
+                  0033a81c    00000009                       : _lock.obj (.text)
+                  0033a825    00000009                       : fd_neg.obj (.text)
+                  0033a82e    00000009                       : strcpy.obj (.text)
+                  0033a837    00000008     DSP2833x_CodeStartBranch.obj (.text)
+                  0033a83f    00000008     Example_Flash2833x_CsmKeys.obj (.text)
+                  0033a847    00000007     DSP2833x_DisInt.obj (.text)
+                  0033a84e    00000007     rts2800_fpu32.lib : memset.obj (.text)
+                  0033a855    00000003     DSP2833x_DBGIER.obj (.text)
 
-ramfuncs   0    0033a8e1    0000001f     RUN ADDR = 00000734
-                  0033a8e1    0000001b     DSP2833x_SysCtrl.obj (ramfuncs)
-                  0033a8fc    00000004     DSP2833x_usDelay.obj (ramfuncs)
+.econst    0    0033a858    00000a63     
+                  0033a858    000004b4     main.obj (.econst:.string)
+                  0033ad0c    0000036b     flash.obj (.econst:.string)
+                  0033b077    00000101     rts2800_fpu32.lib : ctype.obj (.econst:__ctypes_)
+                  0033b178    00000100     DSP2833x_PieVect.obj (.econst)
+                  0033b278    00000024     rts2800_fpu32.lib : _printfi.obj (.econst:.string)
+                  0033b29c    00000018                       : _printfi.obj (.econst)
+                  0033b2b4    00000007     flash.obj (.econst:_FlashSector)
 
-.econst    0    0033a900    00000a63     
-                  0033a900    000004b4     main.obj (.econst:.string)
-                  0033adb4    0000036b     flash.obj (.econst:.string)
-                  0033b11f    00000101     rts2800_fpu32.lib : ctype.obj (.econst:__ctypes_)
-                  0033b220    00000100     DSP2833x_PieVect.obj (.econst)
-                  0033b320    00000024     rts2800_fpu32.lib : _printfi.obj (.econst:.string)
-                  0033b344    00000018                       : _printfi.obj (.econst)
-                  0033b35c    00000007     flash.obj (.econst:_FlashSector)
+ramfuncs   0    0033b2bb    0000001f     RUN ADDR = 000006f6
+                  0033b2bb    0000001b     DSP2833x_SysCtrl.obj (ramfuncs)
+                  0033b2d6    00000004     DSP2833x_usDelay.obj (ramfuncs)
 
-.cinit     0    0033b363    00000028     
-                  0033b363    0000000a     Flash28335_API_V210.lib : Flash28_Globals.obj (.cinit)
-                  0033b36d    0000000a     rts2800_fpu32.lib : _lock.obj (.cinit)
-                  0033b377    0000000a                       : exit.obj (.cinit)
-                  0033b381    00000004     flash.obj (.cinit)
-                  0033b385    00000004     main.obj (.cinit)
-                  0033b389    00000002     --HOLE-- [fill = 0]
+.cinit     0    0033b2da    00000028     
+                  0033b2da    0000000a     Flash28335_API_V210.lib : Flash28_Globals.obj (.cinit)
+                  0033b2e4    0000000a     rts2800_fpu32.lib : _lock.obj (.cinit)
+                  0033b2ee    0000000a                       : exit.obj (.cinit)
+                  0033b2f8    00000004     flash.obj (.cinit)
+                  0033b2fc    00000004     main.obj (.cinit)
+                  0033b300    00000002     --HOLE-- [fill = 0]
 
 csm_rsvd   0    0033ff80    00000076     
                   0033ff80    00000076     DSP2833x_CSMPasswords.obj (csm_rsvd)
@@ -444,33 +441,33 @@ GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name
 address    name
 --------   ----
 00338507   .text
-0033a80c   C$$EXIT
-0033a173   FD$$ADD
-0033a67b   FD$$CMP
-0033a20f   FD$$DIV
-0033a321   FD$$MPY
-0033a8ae   FD$$NEG
-0033a88d   FD$$SUB
-0033a71a   FD$$TOI
-0033a77c   FD$$TOL
-0033a7b9   FS$$TOFD
-0033a6a5   L$$DIV
-0033a6b4   L$$MOD
-0033a7d5   L$$TOFD
-0033a79b   LL$$CMP
+0033a783   C$$EXIT
+0033a171   FD$$ADD
+0033a5f2   FD$$CMP
+0033a20d   FD$$DIV
+0033a298   FD$$MPY
+0033a825   FD$$NEG
+0033a804   FD$$SUB
+0033a691   FD$$TOI
+0033a6f3   FD$$TOL
+0033a730   FS$$TOFD
+0033a61c   L$$DIV
+0033a62b   L$$MOD
+0033a74c   L$$TOFD
+0033a712   LL$$CMP
 00339de8   LL$$DIV
 00339e24   LL$$MOD
-0033a867   LL$$MPY
-0033a6c2   UL$$DIV
-0033a6c9   UL$$MOD
-0033a7ad   ULL$$CMP
+0033a7de   LL$$MPY
+0033a639   UL$$DIV
+0033a640   UL$$MOD
+0033a724   ULL$$CMP
 00339e5e   ULL$$DIV
 00339e8d   ULL$$MOD
 00339709   _ADCINT_ISR
 00380080   _ADC_cal
 00000b00   _AdcMirror
 00007100   _AdcRegs
-0033a3e3   _ConfigCpuTimer
+0033a35a   _ConfigCpuTimer
 003395c5   _Convert_HEX_AtoI
 00000568   _CpuTimer0
 00000c00   _CpuTimer0Regs
@@ -519,11 +516,11 @@ address    name
 003391d6   _DMACH6TransferConfig
 003391e7   _DMACH6WrapConfig
 00338e51   _DMAInitialize
-0033a8d0   _DSP28x_DisableInt
-0033a8d4   _DSP28x_RestoreInt
-0000074f   _DSP28x_usDelay
+0033a847   _DSP28x_DisableInt
+0033a84b   _DSP28x_RestoreInt
+00000711   _DSP28x_usDelay
 00000880   _DevEmuRegs
-0033a0c4   _DisableDog
+0033a0c2   _DisableDog
 00001000   _DmaRegs
 0033935a   _DownFromFlash
 00339333   _DownFromSCI
@@ -579,7 +576,7 @@ address    name
 003397e5   _EQEP2_INT_ISR
 00006b00   _EQep1Regs
 00006b40   _EQep2Regs
-0033a6ee   _EnableInterrupts
+0033a665   _EnableInterrupts
 0033931b   _Erase_AllFlash
 003392a8   _Erase_SelectFlash
 000004cb   _Fl28335_ClearSector
@@ -612,7 +609,7 @@ address    name
 00338000   _Flash28_API_LoadStart
 00000050   _Flash28_API_RunStart
 00000a80   _FlashRegs
-0033b35c   _FlashSector
+0033b2b4   _FlashSector
 000006ea   _FlashStatus
 00000572   _Flash_CPUScaleFactor
 00000570   _Flash_CallbackPtr
@@ -627,40 +624,40 @@ address    name
 0033965f   _ILLEGAL_ISR
 00339623   _INT13_ISR
 0033962d   _INT14_ISR
-0033a853   _InitAdc
-0033a3a4   _InitCpuTimers
+0033a7ca   _InitAdc
+0033a31b   _InitCpuTimers
 00339939   _InitECan
 00339ac8   _InitECanGpio
 0033993e   _InitECana
 00339acd   _InitECanaGpio
 00339a03   _InitECanb
 00339ae3   _InitECanbGpio
-0033a493   _InitECap
-0033a4a1   _InitECap1Gpio
-0033a4af   _InitECap2Gpio
-0033a4bb   _InitECap3Gpio
-0033a4c7   _InitECap4Gpio
-0033a4d3   _InitECap5Gpio
-0033a4e1   _InitECap6Gpio
-0033a494   _InitECapGpio
-00339fe9   _InitEPwm
-00339ff7   _InitEPwm1Gpio
-0033a009   _InitEPwm2Gpio
-0033a01b   _InitEPwm3Gpio
-0033a02f   _InitEPwm4Gpio
-0033a043   _InitEPwm5Gpio
-0033a055   _InitEPwm6Gpio
-00339fea   _InitEPwmGpio
-0033a067   _InitEPwmSyncGpio
-0033a4ef   _InitEQep
-0033a4f5   _InitEQep1Gpio
-0033a51f   _InitEQep2Gpio
-0033a4f0   _InitEQepGpio
-00000734   _InitFlash
+0033a40a   _InitECap
+0033a418   _InitECap1Gpio
+0033a426   _InitECap2Gpio
+0033a432   _InitECap3Gpio
+0033a43e   _InitECap4Gpio
+0033a44a   _InitECap5Gpio
+0033a458   _InitECap6Gpio
+0033a40b   _InitECapGpio
+00339fe7   _InitEPwm
+00339ff5   _InitEPwm1Gpio
+0033a007   _InitEPwm2Gpio
+0033a019   _InitEPwm3Gpio
+0033a02d   _InitEPwm4Gpio
+0033a041   _InitEPwm5Gpio
+0033a053   _InitEPwm6Gpio
+00339fe8   _InitEPwmGpio
+0033a065   _InitEPwmSyncGpio
+0033a466   _InitEQep
+0033a46c   _InitEQep1Gpio
+0033a496   _InitEQep2Gpio
+0033a467   _InitEQepGpio
+000006f6   _InitFlash
 0033925e   _InitFlashAPI
-0033a6f7   _InitGpio
-0033a825   _InitI2C
-0033a826   _InitI2CGpio
+0033a66e   _InitGpio
+0033a79c   _InitI2C
+0033a79d   _InitI2CGpio
 00339c7c   _InitMcbsp
 00339d55   _InitMcbspGpio
 00339c81   _InitMcbspa
@@ -679,23 +676,22 @@ address    name
 00339d4a   _InitMcbspb32bit
 00339d17   _InitMcbspb8bit
 00339d94   _InitMcbspbGpio
-0033a11a   _InitPeripheralClocks
-0033a6cf   _InitPieCtrl
-0033a75c   _InitPieVectTable
-0033a0cc   _InitPll
-0033a58b   _InitSci
-0033a5ac   _InitSciGpio
-0033a5af   _InitSciaGpio
-0033a651   _InitSpi
-0033a652   _InitSpiGpio
-0033a655   _InitSpiaGpio
+0033a118   _InitPeripheralClocks
+0033a646   _InitPieCtrl
+0033a6d3   _InitPieVectTable
+0033a0ca   _InitPll
+0033a502   _InitSci
+0033a523   _InitSciGpio
+0033a526   _InitSciaGpio
+0033a5c8   _InitSpi
+0033a5c9   _InitSpiGpio
+0033a5cc   _InitSpiaGpio
 003392a1   _InitStruct_HexDown
-0033a0b1   _InitSysCtrl
-0033a07b   _InitTzGpio
-0033a29a   _InitVFDBright
+0033a0af   _InitSysCtrl
+0033a079   _InitTzGpio
 00339eef   _InitXintf
-00339f95   _InitXintf16Gpio
-00339f4e   _InitXintf32Gpio
+00339f93   _InitXintf16Gpio
+00339f4c   _InitXintf32Gpio
 0033991b   _LUF_ISR
 00339911   _LVF_ISR
 003394ef   _LoadFlashData
@@ -705,41 +701,41 @@ address    name
 0033980d   _MXINTB_ISR
 00005000   _McbspaRegs
 00005040   _McbspbRegs
-0033a83c   _MemCopy
+0033a7b3   _MemCopy
 00339655   _NMI_ISR
 00339925   _PIE_RESERVED
-0033a8c8   _PRG_key0
-0033a8c9   _PRG_key1
-0033a8ca   _PRG_key2
-0033a8cb   _PRG_key3
-0033a8cc   _PRG_key4
-0033a8cd   _PRG_key5
-0033a8ce   _PRG_key6
-0033a8cf   _PRG_key7
+0033a83f   _PRG_key0
+0033a840   _PRG_key1
+0033a841   _PRG_key2
+0033a842   _PRG_key3
+0033a843   _PRG_key4
+0033a844   _PRG_key5
+0033a845   _PRG_key6
+0033a846   _PRG_key7
 00380090   _PartIdRegs
 00000ce0   _PieCtrlRegs
 00000d00   _PieVectTable
-0033b220   _PieVectTableInit
+0033b178   _PieVectTableInit
 00339b97   _PrintMenu
 00339641   _RTOSINT_ISR
-0033a900   _RamfuncsLoadEnd
-0033a8e1   _RamfuncsLoadStart
-00000734   _RamfuncsRunStart
+0033b2da   _RamfuncsLoadEnd
+0033b2bb   _RamfuncsLoadStart
+000006f6   _RamfuncsRunStart
 0033988f   _SCIRXINTA_ISR
 003398a3   _SCIRXINTB_ISR
 0033987b   _SCIRXINTC_ISR
 00339899   _SCITXINTA_ISR
 003398ad   _SCITXINTB_ISR
 00339885   _SCITXINTC_ISR
-0033a45a   _SCIa_Printf
-0033a41d   _SCIa_RxChar
-0033a46d   _SCIb_Printf
-0033a425   _SCIb_RxChar
-0033a480   _SCIc_Printf
-0033a42d   _SCIc_RxChar
+0033a3d1   _SCIa_Printf
+0033a394   _SCIa_RxChar
+0033a3e4   _SCIb_Printf
+0033a39c   _SCIb_RxChar
+0033a3f7   _SCIc_Printf
+0033a3a4   _SCIc_RxChar
 00339375   _SCItoFLASH
-0033a435   _SCIx_TxChar
-0033a443   _SCIx_TxString
+0033a3ac   _SCIx_TxChar
+0033a3ba   _SCIx_TxString
 003396e1   _SEQ1INT_ISR
 003396eb   _SEQ2INT_ISR
 003397ef   _SPIRXINTA_ISR
@@ -747,8 +743,8 @@ address    name
 00007050   _SciaRegs
 00007750   _ScibRegs
 00007770   _ScicRegs
-0033a0ba   _ServiceDog
-0033a8de   _SetDBGIER
+0033a0b8   _ServiceDog
+0033a855   _SetDBGIER
 003394e9   _SetUserHEXFlashadd
 00007040   _SpiaRegs
 00338eff   _StartDMACH1
@@ -771,12 +767,6 @@ address    name
 003396a5   _USER7_ISR
 003396af   _USER8_ISR
 003396b9   _USER9_ISR
-00000700   _VFDAddr
-00000701   _VFDBright
-0033a2eb   _VFDMenu
-0033a2da   _VFDPrintf
-0033a2a9   _VFDPutChar
-0033a2c0   _VFDString
 0033971d   _WAKEINT_ISR
 003396f5   _XINT1_ISR
 003396ff   _XINT2_ISR
@@ -790,43 +780,43 @@ address    name
 00000001   __STACK_SIZE
 ffffffff   ___binit__
 ffffffff   ___c_args__
-0033b363   ___cinit__
-0033a8e1   ___etext__
-0033a73b   ___memcpy_ff
+0033b2da   ___cinit__
+0033a858   ___etext__
+0033a6b2   ___memcpy_ff
 ffffffff   ___pinit__
 00338507   ___text__
-0033a7f1   __args_main
+0033a768   __args_main
 00000578   __cleanup_ptr
-0033b11f   __ctypes_
+0033b077   __ctypes_
 0000057a   __dtors_ptr
 00000576   __lock
-0033a8ad   __nop
+0033a824   __nop
 00338d4b   __printfi
-0033a8a9   __register_lock
-0033a8a5   __register_unlock
+0033a820   __register_lock
+0033a81c   __register_unlock
 00008000   __stack
 00000574   __unlock
-0033a80c   _abort
-0033a5c4   _atoi
-0033a545   _c_int00
+0033a783   _abort
+0033a53b   _atoi
+0033a4bc   _c_int00
 00339dd2   _clkg_delay_loop
 00339c31   _cpu_timer0_isr
 00339dbc   _delay_loop
-0033a80e   _exit
-0033a5f5   _ltoa
+0033a785   _exit
+0033a56c   _ltoa
 00339af7   _main
-0033a87b   _memccpy
-0033a8d7   _memset
+0033a7f2   _memccpy
+0033a84e   _memset
 000006e8   _pFlashAdd
 000006e6   _pRamAdd
 0033992f   _rsvd_ISR
-0033a8b7   _strcpy
-0033a89b   _strlen
-0033a623   _vsprintf
+0033a82e   _strcpy
+0033a812   _strlen
+0033a59a   _vsprintf
 ffffffff   binit
-0033b363   cinit
+0033b2da   cinit
 0033fff6   code_start
-0033a8e1   etext
+0033a858   etext
 ffffffff   pinit
 
 
@@ -875,11 +865,9 @@ address    name
 000006e8   _pFlashAdd
 000006ea   _FlashStatus
 000006ee   _DownLoadingHex
-00000700   _VFDAddr
-00000701   _VFDBright
-00000734   _InitFlash
-00000734   _RamfuncsRunStart
-0000074f   _DSP28x_usDelay
+000006f6   _InitFlash
+000006f6   _RamfuncsRunStart
+00000711   _DSP28x_usDelay
 00000880   _DevEmuRegs
 00000a80   _FlashRegs
 00000ae0   _CsmRegs
@@ -1099,117 +1087,112 @@ address    name
 00339e5e   ULL$$DIV
 00339e8d   ULL$$MOD
 00339eef   _InitXintf
-00339f4e   _InitXintf32Gpio
-00339f95   _InitXintf16Gpio
-00339fe9   _InitEPwm
-00339fea   _InitEPwmGpio
-00339ff7   _InitEPwm1Gpio
-0033a009   _InitEPwm2Gpio
-0033a01b   _InitEPwm3Gpio
-0033a02f   _InitEPwm4Gpio
-0033a043   _InitEPwm5Gpio
-0033a055   _InitEPwm6Gpio
-0033a067   _InitEPwmSyncGpio
-0033a07b   _InitTzGpio
-0033a0b1   _InitSysCtrl
-0033a0ba   _ServiceDog
-0033a0c4   _DisableDog
-0033a0cc   _InitPll
-0033a11a   _InitPeripheralClocks
-0033a173   FD$$ADD
-0033a20f   FD$$DIV
-0033a29a   _InitVFDBright
-0033a2a9   _VFDPutChar
-0033a2c0   _VFDString
-0033a2da   _VFDPrintf
-0033a2eb   _VFDMenu
-0033a321   FD$$MPY
-0033a3a4   _InitCpuTimers
-0033a3e3   _ConfigCpuTimer
-0033a41d   _SCIa_RxChar
-0033a425   _SCIb_RxChar
-0033a42d   _SCIc_RxChar
-0033a435   _SCIx_TxChar
-0033a443   _SCIx_TxString
-0033a45a   _SCIa_Printf
-0033a46d   _SCIb_Printf
-0033a480   _SCIc_Printf
-0033a493   _InitECap
-0033a494   _InitECapGpio
-0033a4a1   _InitECap1Gpio
-0033a4af   _InitECap2Gpio
-0033a4bb   _InitECap3Gpio
-0033a4c7   _InitECap4Gpio
-0033a4d3   _InitECap5Gpio
-0033a4e1   _InitECap6Gpio
-0033a4ef   _InitEQep
-0033a4f0   _InitEQepGpio
-0033a4f5   _InitEQep1Gpio
-0033a51f   _InitEQep2Gpio
-0033a545   _c_int00
-0033a58b   _InitSci
-0033a5ac   _InitSciGpio
-0033a5af   _InitSciaGpio
-0033a5c4   _atoi
-0033a5f5   _ltoa
-0033a623   _vsprintf
-0033a651   _InitSpi
-0033a652   _InitSpiGpio
-0033a655   _InitSpiaGpio
-0033a67b   FD$$CMP
-0033a6a5   L$$DIV
-0033a6b4   L$$MOD
-0033a6c2   UL$$DIV
-0033a6c9   UL$$MOD
-0033a6cf   _InitPieCtrl
-0033a6ee   _EnableInterrupts
-0033a6f7   _InitGpio
-0033a71a   FD$$TOI
-0033a73b   ___memcpy_ff
-0033a75c   _InitPieVectTable
-0033a77c   FD$$TOL
-0033a79b   LL$$CMP
-0033a7ad   ULL$$CMP
-0033a7b9   FS$$TOFD
-0033a7d5   L$$TOFD
-0033a7f1   __args_main
-0033a80c   C$$EXIT
-0033a80c   _abort
-0033a80e   _exit
-0033a825   _InitI2C
-0033a826   _InitI2CGpio
-0033a83c   _MemCopy
-0033a853   _InitAdc
-0033a867   LL$$MPY
-0033a87b   _memccpy
-0033a88d   FD$$SUB
-0033a89b   _strlen
-0033a8a5   __register_unlock
-0033a8a9   __register_lock
-0033a8ad   __nop
-0033a8ae   FD$$NEG
-0033a8b7   _strcpy
-0033a8c8   _PRG_key0
-0033a8c9   _PRG_key1
-0033a8ca   _PRG_key2
-0033a8cb   _PRG_key3
-0033a8cc   _PRG_key4
-0033a8cd   _PRG_key5
-0033a8ce   _PRG_key6
-0033a8cf   _PRG_key7
-0033a8d0   _DSP28x_DisableInt
-0033a8d4   _DSP28x_RestoreInt
-0033a8d7   _memset
-0033a8de   _SetDBGIER
-0033a8e1   _RamfuncsLoadStart
-0033a8e1   ___etext__
-0033a8e1   etext
-0033a900   _RamfuncsLoadEnd
-0033b11f   __ctypes_
-0033b220   _PieVectTableInit
-0033b35c   _FlashSector
-0033b363   ___cinit__
-0033b363   cinit
+00339f4c   _InitXintf32Gpio
+00339f93   _InitXintf16Gpio
+00339fe7   _InitEPwm
+00339fe8   _InitEPwmGpio
+00339ff5   _InitEPwm1Gpio
+0033a007   _InitEPwm2Gpio
+0033a019   _InitEPwm3Gpio
+0033a02d   _InitEPwm4Gpio
+0033a041   _InitEPwm5Gpio
+0033a053   _InitEPwm6Gpio
+0033a065   _InitEPwmSyncGpio
+0033a079   _InitTzGpio
+0033a0af   _InitSysCtrl
+0033a0b8   _ServiceDog
+0033a0c2   _DisableDog
+0033a0ca   _InitPll
+0033a118   _InitPeripheralClocks
+0033a171   FD$$ADD
+0033a20d   FD$$DIV
+0033a298   FD$$MPY
+0033a31b   _InitCpuTimers
+0033a35a   _ConfigCpuTimer
+0033a394   _SCIa_RxChar
+0033a39c   _SCIb_RxChar
+0033a3a4   _SCIc_RxChar
+0033a3ac   _SCIx_TxChar
+0033a3ba   _SCIx_TxString
+0033a3d1   _SCIa_Printf
+0033a3e4   _SCIb_Printf
+0033a3f7   _SCIc_Printf
+0033a40a   _InitECap
+0033a40b   _InitECapGpio
+0033a418   _InitECap1Gpio
+0033a426   _InitECap2Gpio
+0033a432   _InitECap3Gpio
+0033a43e   _InitECap4Gpio
+0033a44a   _InitECap5Gpio
+0033a458   _InitECap6Gpio
+0033a466   _InitEQep
+0033a467   _InitEQepGpio
+0033a46c   _InitEQep1Gpio
+0033a496   _InitEQep2Gpio
+0033a4bc   _c_int00
+0033a502   _InitSci
+0033a523   _InitSciGpio
+0033a526   _InitSciaGpio
+0033a53b   _atoi
+0033a56c   _ltoa
+0033a59a   _vsprintf
+0033a5c8   _InitSpi
+0033a5c9   _InitSpiGpio
+0033a5cc   _InitSpiaGpio
+0033a5f2   FD$$CMP
+0033a61c   L$$DIV
+0033a62b   L$$MOD
+0033a639   UL$$DIV
+0033a640   UL$$MOD
+0033a646   _InitPieCtrl
+0033a665   _EnableInterrupts
+0033a66e   _InitGpio
+0033a691   FD$$TOI
+0033a6b2   ___memcpy_ff
+0033a6d3   _InitPieVectTable
+0033a6f3   FD$$TOL
+0033a712   LL$$CMP
+0033a724   ULL$$CMP
+0033a730   FS$$TOFD
+0033a74c   L$$TOFD
+0033a768   __args_main
+0033a783   C$$EXIT
+0033a783   _abort
+0033a785   _exit
+0033a79c   _InitI2C
+0033a79d   _InitI2CGpio
+0033a7b3   _MemCopy
+0033a7ca   _InitAdc
+0033a7de   LL$$MPY
+0033a7f2   _memccpy
+0033a804   FD$$SUB
+0033a812   _strlen
+0033a81c   __register_unlock
+0033a820   __register_lock
+0033a824   __nop
+0033a825   FD$$NEG
+0033a82e   _strcpy
+0033a83f   _PRG_key0
+0033a840   _PRG_key1
+0033a841   _PRG_key2
+0033a842   _PRG_key3
+0033a843   _PRG_key4
+0033a844   _PRG_key5
+0033a845   _PRG_key6
+0033a846   _PRG_key7
+0033a847   _DSP28x_DisableInt
+0033a84b   _DSP28x_RestoreInt
+0033a84e   _memset
+0033a855   _SetDBGIER
+0033a858   ___etext__
+0033a858   etext
+0033b077   __ctypes_
+0033b178   _PieVectTableInit
+0033b2b4   _FlashSector
+0033b2bb   _RamfuncsLoadStart
+0033b2da   _RamfuncsLoadEnd
+0033b2da   ___cinit__
+0033b2da   cinit
 0033fff6   code_start
 0033fff8   _CsmPwl
 00380080   _ADC_cal
@@ -1220,4 +1203,4 @@ ffffffff   ___pinit__
 ffffffff   binit
 ffffffff   pinit
 
-[385 symbols]
+[378 symbols]

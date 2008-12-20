@@ -132,7 +132,6 @@ typedef long double        float64;
 #include "..\main\main.h"
 #include "..\serial\serial.h"
 #include "..\flash\flash.h"
-#include "..\vfd\vfd.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -153,6 +152,11 @@ typedef long double        float64;
 #define CR		0x0d	//carrige return
 #define ESC		0x1b	//escape
 #define DEL		0x7f	//delete
+
+
+
+#define XINF16BITMODE	1
+#define XINF32BITMODE	0
 
 
 #if DSP28_28335

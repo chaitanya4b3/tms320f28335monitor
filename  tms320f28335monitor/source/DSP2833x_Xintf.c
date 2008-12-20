@@ -101,7 +101,13 @@ void InitXintf(void)
     // Size must be either:
     // 0,1 = x32 or
     // 1,1 = x16 other values are reserved
-    XintfRegs.XTIMING6.bit.XSIZE = 1;
+#if XINF16BITMODE
+	XintfRegs.XTIMING6.bit.XSIZE = 3;
+#endif
+#if XINF32BITMODE
+	XintfRegs.XTIMING6.bit.XSIZE = 1;
+#endif
+
 
 
     // Zone 7------------------------------------
@@ -139,8 +145,12 @@ void InitXintf(void)
    //the last register configured occurs before returning.
 
 //FIX to ctml
-//   InitXintf16Gpio();
-   InitXintf32Gpio();
+#if XINF16BITMODE
+	InitXintf16Gpio();
+#endif
+#if XINF32BITMODE
+	InitXintf32Gpio();
+#endif
 
    asm(" RPT #7 || NOP");
 

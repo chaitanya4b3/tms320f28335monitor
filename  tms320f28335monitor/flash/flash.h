@@ -48,6 +48,9 @@ extern Uint16 DownHEXFrom(Uint16 NumByte , Uint16 Source);
 extern void Go_UserProgram(void);
 extern Uint16 CsmUnlock(void);
 
+extern Uint16 *pFlashAdd;
+extern Uint16 *pRamAdd;
+
 
 struct BYTE8
 {         
