@@ -20,6 +20,27 @@ extern "C" {
 #endif
 
 
+#define TRUE		1
+#define FALSE	0
+
+#define ON		1
+#define OFF		0
+
+//ASCII control char code for UART
+#define NUL		0x00
+#define BEL		0x07	 
+#define BS		0x08	//backspace
+#define LF		0x0a	//linefeed
+#define CR		0x0d	//carrige return
+#define ESC		0x1b	//escape
+#define DEL		0x7f	//delete
+
+
+ // external RAM interface data mode  -> zone 6
+#define XINF16BITMODE	1
+#define XINF32BITMODE	0
+
+
 /*-----------------------------------------------------------------------------
       Specify the PLL control register (PLLCR) and divide select (DIVSEL) value.
 -----------------------------------------------------------------------------*/

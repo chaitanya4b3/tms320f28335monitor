@@ -138,26 +138,6 @@ typedef long double        float64;
 #include <string.h>
 #include <stdarg.h>
 
-#define TRUE		1
-#define FALSE	0
-
-#define ON		1
-#define OFF		0
-
-//ASCII control char code for UART
-#define NUL		0x00
-#define BEL		0x07	 
-#define BS		0x08	//backspace
-#define LF		0x0a	//linefeed
-#define CR		0x0d	//carrige return
-#define ESC		0x1b	//escape
-#define DEL		0x7f	//delete
-
-
-
-#define XINF16BITMODE	1
-#define XINF32BITMODE	0
-
 
 #if DSP28_28335
 #define DSP28_EPWM1  1

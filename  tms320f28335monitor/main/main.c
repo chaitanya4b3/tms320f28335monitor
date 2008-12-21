@@ -8,7 +8,7 @@
 //	    				
 // 		Jeon yu hun (dimbibara@gmail.com)
 //
-//  Copyright (C) 1993  Corey Minyard
+//  Copyright (C) 2008  Jeon yu hun
 //
 //  This program is free software; you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
