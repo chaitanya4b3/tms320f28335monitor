@@ -1,3 +1,50 @@
 --------------------------  monitor_ctml.pjt - Debug  --------------------------
+[flash.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "flash.c"
+
+[main.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "main.c"
+
+[serial.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "serial.c"
+
+[DSP2833x_Adc.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Adc.c"
+
+[DSP2833x_CpuTimers.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_CpuTimers.c"
+
+[DSP2833x_DefaultIsr.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_DefaultIsr.c"
+
+[DSP2833x_DMA.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_DMA.c"
+
+[DSP2833x_ECan.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_ECan.c"
+
+[DSP2833x_ECap.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_ECap.c"
+
+[DSP2833x_EPwm.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_EPwm.c"
+
+[DSP2833x_EQep.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_EQep.c"
+
+[DSP2833x_GlobalVariableDefs.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_GlobalVariableDefs.c"
+
+[DSP2833x_Gpio.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Gpio.c"
+
+[DSP2833x_I2C.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_I2C.c"
+
+[DSP2833x_Mcbsp.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Mcbsp.c"
+
+[DSP2833x_MemCopy.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_MemCopy.c"
+
+[DSP2833x_PieCtrl.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_PieCtrl.c"
+
+[DSP2833x_PieVect.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_PieVect.c"
+
+[DSP2833x_Sci.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Sci.c"
+
+[DSP2833x_Spi.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Spi.c"
+
+[DSP2833x_SysCtrl.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_SysCtrl.c"
+
+[DSP2833x_Xintf.c] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -pdr -pdsw225 -fr"D:/work/TMS320F28335/monitor_ctml/Debug" -i"../include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../monitor_ctml/Debug.lkf" "DSP2833x_Xintf.c"
+
+[Linking...] "C:\Program Files\C2000 Code Generation Tools 5.1.1\bin\cl2000" -@"Debug.lkf"
+<Linking>
+
 Build Complete,
   0 Errors, 0 Warnings, 0 Remarks.
